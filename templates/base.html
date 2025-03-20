@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{% url "main_page" %}">
+                <img src="{% static 'main/img/logo_without_back.png' %}" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'new_stuff' %}">New Arrivals</a></li>
+                    <li><a href="{% url 'outerwear' %}">Outerwear</a></li>
+                    <li><a href="{% url 'bottoms' %}">Bottoms</a></li>
+                    <li><a href="{% url 'accessories' %}">Accessories</a></li>
+                    <li><a href="{% url 'sportswear' %}">Sportswear</a></li>
+                    <li><a href="{% url 'collections' %}">Collections</a></li>
+                    <li><a href="{% url 'guides' %}">Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer-banner">
+        <div class="footer-content">
+            <!-- Левая часть (Адрес и часы работы) -->
+            <div class="footer-left">
+                <div class="footer-left1">
+                    <h3>STORE</h3>
+                    <p>OPEN DAILY:</p>
+                    <p>10:00 AM - 9:00 PM</p>
+                </div>
+                <div class="footer-left2">
+                    <h3>ADDRESS</h3>
+                    <p>8 PRINCES STREET,</p>
+                    <p>EDINBURGH,</p>
+                    <p>UNITED KINGDOM</p>
+                </div>
+            </div>
+    
+            <!-- Центральная часть (Логотип и права) -->
+            <div class="footer-center">
+                <img src="{% static 'main/img/logo_without_back.png' %}" alt="Logo" class="footer-logo">
+                <p class="footer-text">© Polaris Aurora 2025. All rights reserved.</p>
+            </div>
+
+            <!-- Правая часть (Контактная информация) -->
+            <div class="footer-right">
+                <div class="footer-right1">
+                    <h3>PHONE</h3>
+                    <p>+44 131 496 5555</p>
+                </div>
+                <div class="footer-right2">
+                    <h3>EMAIL</h3>
+                    <p>info@polarisaurora.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

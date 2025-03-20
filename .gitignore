@@ -1,0 +1,55 @@
+# Настройки IDE
+.vscode/
+.idea/
+
+# Файлы Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Локальные настройки и переменные окружения
+.env
+.env.local
+.env.*.local
+
+# Миграции (если вы предпочитаете не коммитить их)
+migrations/
+!migrations/__init__.py
+
+# Статические файлы и медиа
+/staticfiles/
+/media/
+
+# Базы данных
+db.sqlite3
+*.sqlite3
+
+# Виртуальное окружение
+venv/
+ENV/
+env/
+.venv/
+virtualenv/
+
+# Загруженные файлы
+/uploads/
+/files/
+
+# Логи
+logs/
+*.log
+
+# Тестовые файлы
+.coverage
+.htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# Дистрибутивы Python
+/dist/
+/build/
+/*.egg-info/
+
+# Файлы OS X
+.DS_Store
