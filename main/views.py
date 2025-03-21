@@ -7,22 +7,22 @@ def main_page(request):
     return render(request, "main/index.html", {"title": "Polaris Aurora"})
 
 def new_stuff(request):
-    return HttpResponse("Новые товары")
+    return render(request, "main/new_stuff.html", {"title": "New Stuff"})
 
 def outerwear(request):
-    return HttpResponse("Верхняя одежда")
+    return render(request, "main/outerwear.html", {"title": "Outwear"})
 
 def bottoms(request):
-    return HttpResponse("Нижняя одежда")
+    return render(request, "main/bottoms.html", {"title": "Bottoms"})
 
 def accessories(request):
-    return HttpResponse("Аксесуары")
+    return render(request, "main/accessories.html", {"title": "Accessories"})
 
 def sportswear(request):
-    return HttpResponse("Спортивная экипировка")
+    return render(request, "main/sportswear.html", {"title": "Sportswear"})
 
 def collections(request):
-    return HttpResponse("Коллекции")
+    return render(request, "main/Collections.html", {"title": "Collections"})
 
 def guides(request):
     return render(request, "main/guides.html", {"title": "Guides"})

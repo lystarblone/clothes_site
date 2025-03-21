@@ -1,5 +1,48 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/guides.css' %}">
+{% endblock styles %}
+
 {% block content %}
-<p>Here you can find useful information about winter clothing.</p>
+<div class="containerr">
+    <div class="sidebar">
+        <ul>
+            <li><a href="#delivery">About The Store</a></li>
+            <li><a href="#delivery">Delivery</a></li>
+            <li><a href="#pickup">Pickup</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#refund">Returns & Refunds</a></li>
+            <li><a href="#size-guide">Size Guide</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-use">Terms of Use</a></li>
+        </ul>
+    </div>
+
+    <main class="content">
+        <!-- Основной контент -->
+        <section class="about-section">
+            <h1 class="about-title">About The Store</h1>
+            <p>
+                We believe that winter is not just about the cold and snow—it’s about endless opportunities for self-expression, adventure, and style. Our goal is simple: to make every moment spent in the frost comfortable, beautiful, and exhilarating.
+            </p>
+            <p>
+                We create clothing and gear that work as hard as you do. Whether it’s a high-speed descent down the slopes, a stroll through a snow-covered city, or relaxing by a mountain fire, every detail of our collections is meticulously thought out. Polaris Aurora is the perfect blend of innovation, technology, and impeccable design, making winter even more thrilling.
+            </p>
+
+            <h2 class="mission-title">Our Mission</h2>
+            <p>
+                We know that modern individuals seek more than just functionality. They want to stay true to themselves, even in the most extreme conditions. That’s why every Polaris Aurora product strikes the perfect balance between technical performance and aesthetic appeal.
+            </p>
+            <ul class="mission-list">
+                <li>Style : We draw inspiration from nature, fashion, and architecture. Our collections feature bold colors, clean lines, and versatile designs that work equally well in the city and on the mountains.</li>
+                <li>Technology : At the heart of every product are advanced materials and innovations. Waterproofing, temperature regulation, wind protection, and durability are standard features across our range.</li>
+                <li>Sustainability : We care about the planet. Many of our products are made from recycled materials, and our production processes aim to minimize environmental impact.</li>
+            </ul>
+        </section>
+    </main>
+</div>
 {% endblock content %}

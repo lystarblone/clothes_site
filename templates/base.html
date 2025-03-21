@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    {% block styles %}{% endblock styles %}
     <title>{{ title }}</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
                     <li><a href="{% url 'accessories' %}">Accessories</a></li>
                     <li><a href="{% url 'sportswear' %}">Sportswear</a></li>
                     <li><a href="{% url 'collections' %}">Collections</a></li>
-                    <li><a href="{% url 'guides' %}">Guides</a></li>
+                    <li><a href="{% url 'guides' %}">Client Resources</a></li>
                 </ul>
             </nav>
         </div>

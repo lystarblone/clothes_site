@@ -1,14 +1,13 @@
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Включаем размеры padding и border в ширину и высоту элемента */
+    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6; /* Межстрочный интервал */
-    padding-top: 5.5vw; /* Отступ сверху для основного контента, чтобы он не перекрывался панелью */
+    line-height: 1.6;
+    padding-top: 5.5vw;
 }
 
 /* Стили для верхней панели */
@@ -79,19 +78,6 @@ body:not(:has(.scrolled)) .content {
     object-fit: cover;
     display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .footer-banner {
     background-color: #000;
