@@ -1,3 +1,4 @@
+/* Глобальные стили */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -7,6 +8,7 @@ body {
     padding: 0;
 }
 
+/* Стили для контейнера страницы */
 .containerr {
     display: flex;
     margin: 0 auto;
@@ -15,9 +17,10 @@ body {
     gap: 2vw;
 }
 
+/* Стили для боковой панели */
 .sidebar {
     width: 100%;
-    max-width: 13vw;;
+    max-width: 14vw;
     background-color: #fff;
     border-radius: 1vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
@@ -59,6 +62,7 @@ body {
     color: transparent;
 }
 
+/* Стили для основного контента */
 .content {
     flex: 1;
     background-color: #fff;
@@ -66,10 +70,12 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     overflow: hidden;
+    margin-bottom: 1rem;
 }
 
+/* Стили для разделов контента */
 .about-section {
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
 }
 
 .about-title,
@@ -106,4 +112,46 @@ body {
     font-size: 1rem;
     color: #555;
     margin-bottom: 0.8rem;
+}
+
+.sub-list {
+    margin-left: 1rem;
+    margin-top: 0.7rem;
+    padding-left: 1rem;
+    list-style-type: disc;
+}
+
+.sub-list li {
+    margin-bottom: 0.8rem;
+}
+
+/* Стили для информации о магазине */
+.store-details {
+    display: flex;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    gap: 2rem; /* Расстояние между текстом и изображением */
+}
+
+.text-section {
+    flex: 1; /* Занимает доступное пространство */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Отступ между элементами текста */
+}
+
+.address-section,
+.opening-hours-section {
+    margin-bottom: 1rem;
+}
+
+.image-section {
+    flex: 1;
+    text-align: center;
+}
+
+.map-image {
+    width: 32vw;
+    height: 37vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

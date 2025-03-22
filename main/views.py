@@ -25,8 +25,13 @@ def collections(request):
     return render(request, "main/Collections.html", {"title": "Collections"})
 
 def guides(request):
-    return render(request, "main/guides.html", {"title": "Guides"})
+    return render(request, "main/client_resources/main.html", {"title": "Client Resources"})
 
+def delivery(request):
+    return render(request, "main/client_resources/delivery.html", {"title": "Delivery"})
+
+def pickup(request):
+    return render(request, "main/client_resources/pickup.html", {"title": "Pickup"})
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена')

@@ -1,0 +1,64 @@
+{% extends "main/guides.html" %}
+{% load static %}
+
+{% block client_resources_content %}
+<section class="about-section">
+    <h1 class="about-title">Convenient Pickup Options</h1>
+    
+    <p>
+        Planning your next winter adventure? We make it easy for you to get your hands on our premium winter clothing and gear. With our <strong>Click & Collect</strong> service, you can shop online and pick up your order directly from our Edinburgh store—quickly, conveniently, and free of charge.
+    </p>
+
+    <h2 class="mission-title">Why Choose Our Pickup Service?</h2>
+    <ul class="mission-list">
+        <li><strong>No Shipping Fees:</strong> Enjoy free pickup for all orders, no matter the size.</li>
+        <li><strong>Fast Access:</strong> Skip the wait for delivery—most orders are ready within 1 business day.</li>
+        <li><strong>Flexibility:</strong> Visit our store at your convenience during opening hours.</li>
+        <li><strong>In-Store Support:</strong> Need advice on how to style your new jacket or care for your gear? Our knowledgeable team is always on hand to help.</li>
+    </ul>
+
+    <h2 class="mission-title">How It Works</h2>
+    <ol class="mission-list">
+        <li><strong>Shop Online:</strong> Add your favorite items to your cart and proceed to checkout. Select <strong>"Click & Collect"</strong> as your delivery method.</li>
+        <li><strong>Receive Confirmation:</strong> Once your order is ready, we’ll send you an email or SMS notification. This usually takes just <strong>1 business day</strong> for in-stock items.</li>
+        <li><strong>Pick Up Your Order:</strong> Bring your confirmation (printed or digital) and a valid ID to our Edinburgh store. If someone else is collecting on your behalf, they’ll also need to provide their ID.</li>
+    </ol>
+
+    <h2 class="mission-title">Our Store Details</h2>
+    <div class="store-details">
+        <div class="text-section">
+            <div class="address-section">
+                <strong>Address:</strong> Polaris Aurora Store, 8 Princes Street, Edinburgh, EH1 4AB, United Kingdom
+            </div>
+    
+            <div class="opening-hours-section">
+                <strong>Opening Hours:</strong>
+                    <li><strong>Open daily:</strong> 10:00 AM – 9:00 PM</li>
+            </div>
+
+            <p>
+                <strong>Location information:</strong> Our store is located in the heart of Edinburgh, just a short walk from Waverley Station. Whether you're exploring the historic Old Town or enjoying the vibrant shopping district, our location is convenient and easy to reach.
+            </p>
+
+            <p>
+                <strong>Parking Information:</strong> For those driving, there are several parking options nearby, including the Princes Street Car Park and the St. James Quarter Parking. Both are within a 5-minute walk from our store.
+            </p>
+
+            <p>
+                <strong>Public Transport:</strong> If you prefer public transport, Waverley Station is just a 10-minute walk away, and multiple bus routes stop near our store. Look for stops along Princes Street for easy access.
+            </p>
+        </div>
+    
+        <div class="image-section">
+            <img src="{% static 'main/img/map.jpeg' %}" alt="Map of Polaris Aurora Store Location" class="map-image">
+        </div>
+    </div>
+
+    <h2 class="mission-title">Tips for a Smooth Pickup Experience</h2>
+    <ul class="mission-list">
+        <li><strong>Double-Check Your Order:</strong> Review your confirmation email to ensure you’re picking up the correct items.</li>
+        <li><strong>Plan Your Visit:</strong> If you’re coming during peak hours (e.g., weekends), consider arriving earlier to avoid queues.</li>
+        <li><strong>Bring Your ID:</strong> Don’t forget to bring your confirmation (printed or digital) and a valid ID. If someone else is collecting your order, they’ll also need to provide their ID.</li>
+    </ul>
+</section>
+{% endblock client_resources_content %}
