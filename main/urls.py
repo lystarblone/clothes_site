@@ -11,5 +11,7 @@ urlpatterns = [
     path("collections/", views.collections, name="collections"),
     path("client_resources/main", views.guides, name="client_resources"),
     path("client_resources/delivery", views.delivery, name="delivery"),
-    path("client_resources/pickup", views.pickup, name="pickup")
+    path("client_resources/pickup", views.pickup, name="pickup"),
+    path("client_resources/payment", views.payment, name="payment"),
+    path("client_resources/returns_and_refunds", views.returns_and_refunds, name="returns_and_refunds"),
 ]

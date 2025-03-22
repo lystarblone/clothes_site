@@ -33,5 +33,11 @@ def delivery(request):
 def pickup(request):
     return render(request, "main/client_resources/pickup.html", {"title": "Pickup"})
 
+def payment(request):
+    return render(request, "main/client_resources/payment.html", {"title": "Payment"})
+
+def returns_and_refunds(request):
+    return render(request, "main/client_resources/returns_and_refunds.html", {"title": "Returns and refunds"})
+
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена')

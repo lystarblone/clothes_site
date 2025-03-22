@@ -1,0 +1,66 @@
+{% extends "main/guides.html" %}
+{% load static %}
+
+{% block client_resources_content %}
+<section class="about-section">
+    <h1 class="about-title">Accepted Payment Methods</h1>
+    <ul class="mission-list">
+        <li><strong>Credit/Debit Cards:</strong> Visa, MasterCard, American Express, and Discover.</li>
+        <li><strong>Digital Wallets:</strong> Apple Pay, Google Pay, and PayPal.</li>
+        <li><strong>Cryptocurrency:</strong> We accept Bitcoin (BTC), Ethereum (ETH), Tether (USDT) and other cryptocurrencies.</li>
+        <li><strong>Gift Cards:</strong> Redeem your Polaris Aurora gift cards during checkout.</li>
+    </ul>
+
+    <h2 class="mission-title">How to Pay Online</h2>
+    <ol class="mission-list">
+        <li><strong>Add Items to Your Cart:</strong> Browse our collection and add your favorite items to your cart.</li>
+        <li><strong>Proceed to Checkout:</strong> Review your order and enter your shipping details.</li>
+        <li><strong>Select Payment Method:</strong> Choose your preferred payment option from the available methods.</li>
+        <li><strong>Confirm Payment:</strong> Complete the transaction and receive an order confirmation via email.</li>
+    </ol>
+
+    <p>
+        <strong>For Cryptocurrency Payments:</strong> Select "Cryptocurrency" as your payment method during checkout. You will be redirected to our secure payment gateway, where you can scan the QR code or copy the wallet address to complete the transaction. Once the payment is confirmed on the blockchain, your order will be processed immediately.
+    </p>
+
+    <h2 class="mission-title">Payment Security</h2>
+    <ul class="mission-list">
+        <li><strong>SSL Encryption:</strong> All data transmitted during the checkout process is encrypted using Secure Socket Layer (SSL) technology.</li>
+        <li><strong>PCI Compliance:</strong> We adhere to the Payment Card Industry Data Security Standard (PCI DSS) to safeguard your card information.</li>
+        <li><strong>Fraud Protection:</strong> Our advanced fraud detection systems monitor transactions in real-time to prevent unauthorized access.</li>
+        <li><strong>Blockchain Security:</strong> For cryptocurrency payments, we use trusted blockchain networks to ensure transparency and security.</li>
+    </ul>
+
+    <h2 class="mission-title">Frequently Asked Questions</h2>
+    <div class="faq-section">
+        <div class="faq-item">
+            <p><strong>Q: Can I pay with multiple payment methods?</strong></p>
+            <p>A: Currently, we only support one payment method per order. However, you can use a combination of gift cards and other payment methods if applicable.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Q: Is it safe to save my card information?</strong></p>
+            <p>A: Yes, we use secure tokenization to store your card details. This ensures that your information is never stored in plain text and is protected from unauthorized access.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Q: What should I do if my payment fails?</strong></p>
+            <p>A: If your payment fails, please double-check your card details and try again. If the issue persists, contact your bank or our customer service team for assistance.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Q: Do you charge any additional fees for certain payment methods?</strong></p>
+            <p>A: No, we do not charge extra fees for any of our accepted payment methods, including cryptocurrency payments. The total amount displayed at checkout is the final amount you will be charged.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Q: How long does it take to confirm cryptocurrency payments?</strong></p>
+            <p>A: Cryptocurrency payments are typically confirmed within 10–30 minutes, depending on the network congestion. Once the transaction is verified on the blockchain, your order will be processed immediately.</p>
+        </div>
+    </div>
+
+    <h2 class="mission-title">Why Choose Cryptocurrency Payments?</h2>
+    <ul class="mission-list">
+        <li><strong>Privacy:</strong> Cryptocurrency transactions provide an additional layer of privacy compared to traditional payment methods.</li>
+        <li><strong>Global Access:</strong> Pay from anywhere in the world without worrying about currency conversions or international fees.</li>
+        <li><strong>Fast Processing:</strong> Once confirmed on the blockchain, your payment is processed instantly.</li>
+        <li><strong>Lower Fees:</strong> Cryptocurrency payments often have lower transaction fees compared to credit cards or bank transfers.</li>
+    </ul>
+</section>
+{% endblock client_resources_content %}
