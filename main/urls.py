@@ -14,4 +14,8 @@ urlpatterns = [
     path("client_resources/pickup", views.pickup, name="pickup"),
     path("client_resources/payment", views.payment, name="payment"),
     path("client_resources/returns_and_refunds", views.returns_and_refunds, name="returns_and_refunds"),
+    path("client_resources/size_guide", views.size_guide, name="size_guide"),
+    path("client_resources/contacts", views.contacts, name="contacts"),
+    path("client_resources/privacy_policy", views.privacy_policy, name="privacy_policy"),
+    path("client_resources/terms_of_use", views.terms_of_use, name="terms_of_use"),
 ]

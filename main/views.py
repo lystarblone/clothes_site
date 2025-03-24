@@ -39,5 +39,17 @@ def payment(request):
 def returns_and_refunds(request):
     return render(request, "main/client_resources/returns_and_refunds.html", {"title": "Returns and refunds"})
 
+def size_guide(request):
+    return render(request, "main/client_resources/size_guide.html", {"title": "Size Guide"})
+
+def contacts(request):
+    return render(request, "main/client_resources/contacts.html", {"title": "Contacts"})
+
+def privacy_policy(request):
+    return render(request, "main/client_resources/privacy_policy.html", {"title": "Privacy Policy"})
+
+def terms_of_use(request):
+    return render(request, "main/client_resources/terms_of_use.html", {"title": "Terms of Use"})
+
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена')

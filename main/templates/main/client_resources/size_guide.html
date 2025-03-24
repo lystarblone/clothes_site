@@ -1,0 +1,46 @@
+{% extends "main/guides.html" %}
+{% load static %}
+
+{% block client_resources_content %}
+<section class="about-section">
+    <h1 class="about-title">Size Guide</h1>
+    
+    <p>
+        Welcome to our Size Guide! To ensure you find the perfect fit for your winter wardrobe, we’ve put together this helpful guide. Whether you're shopping for jackets, pants, or accessories, you can easily check the size chart by clicking the <strong>"Size Chart"</strong> button next to each product on its page.
+    </p>
+
+    <h2 class="mission-title">How to Measure Yourself</h2>
+    <p>
+        To get accurate measurements, use a soft measuring tape and follow these steps:
+    </p>
+
+    <div class="measurement-guide">
+        <img src="{% static 'main/img/measurement_guide.png' %}" alt="Measurement Guide" class="measurement-image">
+    </div>
+
+    <ol class="mission-list">
+        <li><strong>Chest:</strong> Measure around the fullest part of your chest, keeping the tape horizontal. Make sure it’s snug but not too tight.</li>
+        <li><strong>Waist:</strong> Measure around your natural waistline, which is typically above your belly button. Keep the tape snug but comfortable.</li>
+        <li><strong>Hips:</strong> Measure around the fullest part of your hips, keeping the tape parallel to the floor. Stand with your feet together for the most accurate measurement.</li>
+        <li><strong>Arm Length:</strong> Measure from the top of your shoulder (where your arm meets your body) down to your wrist. Bend your arm slightly for a more natural measurement.</li>
+        <li><strong>Inseam (for pants):</strong> Measure from the top of your inner thigh down to your ankle. Alternatively, measure a pair of pants that fit you well, laying them flat and measuring along the inseam.</li>
+    </ol>
+
+    <p>
+        <em>Pro Tip:</em> If you don’t have a measuring tape, you can use a piece of string or ribbon, then measure it against a ruler.
+    </p>
+
+    <h2 class="mission-title">Types of Fit</h2>
+    <div class="fit-types">
+        <img src="{% static 'main/img/combined_fits.png' %}" alt="Types of Fit" class="combined-fits-image">
+    </div>
+
+    <h2 class="mission-title">Tips for Choosing the Right Size</h2>
+    <ul class="mission-list">
+        <li><strong>Between Sizes?</strong> If your measurements fall between two sizes, we recommend choosing the larger size for a more comfortable fit.</li>
+        <li><strong>Layering:</strong> Keep in mind that winter clothing is often worn with layers. If you plan to wear thick sweaters or thermals underneath, consider sizing up.</li>
+        <li><strong>Fabric Stretch:</strong> Some items may have stretchy fabric. Check the product description for details on material flexibility.</li>
+        <li><strong>Personal Preference:</strong> If you prefer a looser or tighter fit, adjust your size choice accordingly.</li>
+    </ul>
+</section>
+{% endblock client_resources_content %}
