@@ -131,3 +131,12 @@ body:not(:has(.scrolled)) .content {
         pointer-events: none;
     }
 }
+
+#big-title {
+    font-size: 2.7rem;
+    margin: 1rem 1.2rem;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

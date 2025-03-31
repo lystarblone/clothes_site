@@ -14,9 +14,9 @@
     <a href="{% url 'collections' %}" class="banner-button banner-button-1">Discover More</a>
     <a href="{% url 'collections' %}" class="banner-button banner-button-2">Discover More</a>
 </div>
-<h1>Stuff Catalog</h1>
+<h1 id="big-title">Stuff Catalog</h1>
 
-<ul>
+<ul class="gray-list">
     {% for stuff in stuffs %}
         <li>{{ stuff.name }}</li>
     {% empty %}
