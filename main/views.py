@@ -5,18 +5,15 @@ from .models import Stuff
 # Create your views here.
 
 def main_page(request):
-    return render(request, "main/index.html", {"title": "Polaris Aurora"})
-
-def new_stuff(request):
-    return render(request, "main/new_stuff.html", {"title": "New Stuff"})
-
-def all_stuff(request):
     stuffs = Stuff.objects.all()
     dataset = {
         'stuffs': stuffs,
-        'title': 'All Stuff',
+        'title': 'Polaris Aurora',
     }
-    return render(request, "main/all_stuff.html", dataset)
+    return render(request, "main/index.html", dataset)
+
+def new_stuff(request):
+    return render(request, "main/new_stuff.html", {"title": "New Stuff"})
 
 def outerwear(request):
     return render(request, "main/outerwear.html", {"title": "Outwear"})

@@ -1,21 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock styles %}
+
 {% block content %}
 <div class="main_banner">
     <div class="banner-slider">
-        <img src="{% static 'main/img/banner1.jpeg' %}" alt="main_banner_1">
-        <img src="{% static 'main/img/banner.jpeg' %}" alt="main_banner_2">
+        <img src="{% static 'main/img/index/banner1.jpeg' %}" alt="main_banner_1">
+        <img src="{% static 'main/img/index/banner.jpeg' %}" alt="main_banner_2">
     </div>
     <a href="{% url 'collections' %}" class="banner-button banner-button-1">Discover More</a>
     <a href="{% url 'collections' %}" class="banner-button banner-button-2">Discover More</a>
 </div>
-<h3>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla vitae lorem efficitur malesuada.
-Sed euismod, nisi id lacinia tincidunt, eros odio aliquam velit, vel cursus nisl libero nec justo.
-Nullam auctor, sapien ac hendrerit commodo, risus lorem bibendum nisi, vel tristique velit urna nec ex.
-Fusce non massa vel risus tincidunt feugiat. Donec vitae augue vel justo venenatis convallis.
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-Integer non metus at lorem malesuada dictum.
-</h3>
+<h1>Stuff Catalog</h1>
+
+<ul>
+    {% for stuff in stuffs %}
+        <li>{{ stuff.name }}</li>
+    {% empty %}
+        <li>Товаров пока нет.</li>
+    {% endfor %}
+</ul>
 {% endblock content %}

@@ -12,12 +12,11 @@
     <header>
         <div class="container">
             <a href="{% url "main_page" %}">
-                <img src="{% static 'main/img/logo_without_back.png' %}" alt="Logo" class="logo">
+                <img src="{% static 'main/img/index/logo_without_back.png' %}" alt="Logo" class="logo">
             </a>
             <nav>
                 <ul>
                     <li><a href="{% url 'new_stuff' %}">New Arrivals</a></li>
-                    <li><a href="{% url 'all_stuff' %}">All Stuff</a></li>
                     <li><a href="{% url 'outerwear' %}">Outerwear</a></li>
                     <li><a href="{% url 'bottoms' %}">Bottoms</a></li>
                     <li><a href="{% url 'accessories' %}">Accessories</a></li>
@@ -26,6 +25,12 @@
                     <li><a href="{% url 'client_resources' %}">Client Resources</a></li>
                 </ul>
             </nav>
+            <div class="header-widgets">
+                <a href="#" class="search-icon"><img src="{% static 'main/img/index/search.png' %}" alt="Поиск" /></a>
+                <a href="#" class="wishlist-icon"><img src="{% static 'main/img/index/wishlist.png' %}" alt="Избранное" /></a>
+                <a href="#" class="cart-icon"><img src="{% static 'main/img/index/cart.png' %}" alt="Корзина" /></a>
+                <a href="#" class="profile-icon"><img src="{% static 'main/img/index/profile1.png' %}" alt="Профиль" /></a>
+            </div>
         </div>
     </header>
 
@@ -33,7 +38,6 @@
 
     <footer class="footer-banner">
         <div class="footer-content">
-            <!-- Левая часть (Адрес и часы работы) -->
             <div class="footer-left">
                 <div class="footer-left1">
                     <h3>STORE</h3>
@@ -48,13 +52,11 @@
                 </div>
             </div>
     
-            <!-- Центральная часть (Логотип и права) -->
             <div class="footer-center">
-                <img src="{% static 'main/img/logo_without_back.png' %}" alt="Logo" class="footer-logo">
+                <img src="{% static 'main/img/index/logo_without_back.png' %}" alt="Logo" class="footer-logo">
                 <p class="footer-text">© Polaris Aurora 2025. All rights reserved.</p>
             </div>
 
-            <!-- Правая часть (Контактная информация) -->
             <div class="footer-right">
                 <div class="footer-right1">
                     <h3>PHONE</h3>
