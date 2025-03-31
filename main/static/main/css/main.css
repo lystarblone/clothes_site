@@ -84,44 +84,48 @@ body:not(:has(.scrolled)) .content {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0; /* Начальное состояние изображений */
-    transition: opacity 3s ease-in-out; /* Плавное изменение прозрачности */
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
 }
 
 .banner-slider img:nth-child(1) {
-    animation: bannerSlide1 20s infinite; /* Увеличенное время анимации */
+    animation: bannerSlide1 20s infinite;
 }
 
 .banner-slider img:nth-child(2) {
-    animation: bannerSlide2 20s infinite; /* Увеличенное время анимации */
+    animation: bannerSlide2 20s infinite;
 }
 
 @keyframes bannerSlide1 {
     0%, 45% {
-        opacity: 1; /* Первое изображение видимо первые 9 секунд */
+        opacity: 1;
     }
-    55%, 100% {
-        opacity: 0; /* Первое изображение исчезает за 5 секунд */
+    50%, 55% {
+        opacity: 0;
+    }
+    95%, 100% {
+        opacity: 1;
     }
 }
 
 @keyframes bannerSlide2 {
     0%, 45% {
-        opacity: 0; /* Второе изображение невидимо первые 9 секунд */
+        opacity: 0;
     }
-    55%, 100% {
-        opacity: 1; /* Второе изображение появляется за 5 секунд */
+    50%, 80% {
+        opacity: 1;
+    }
+    85%, 100% {
+        opacity: 0;
     }
 }
 
-/* Стили для кнопки */
+/* Стили для кнопок */
 .banner-button {
     position: absolute;
     bottom: 7%;
-    left: 24%;
-    transform: translateX(-50%);
-    background-color: #FFB100;
-    color: #fff;
+    background-color: #FFFFFF;
+    color: #000;
     border: none;
     padding: 1vw 2vw;
     font-size: 1.7vw;
@@ -129,16 +133,60 @@ body:not(:has(.scrolled)) .content {
     border-radius: 2vw;
     text-decoration: none;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 1s ease-in-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
     overflow: hidden;
     min-width: 13vw;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .banner-button:hover {
-    background-color: #FFD700;
-    transform: translate(-50%, -5%) scale(1.02);
+    background-color: #FFB100;
+    transform: scale(1.02);
+}
+
+/* Анимация для кнопки первого баннера */
+.banner-button-1 {
+    left: 17.45%;
+    animation: buttonSlide1 20s infinite;
+}
+
+/* Анимация для кнопки второго баннера */
+.banner-button-2 {
+    right: 24%;
+    animation: buttonSlide2 20s infinite;
+}
+
+@keyframes buttonSlide1 {
+    0%, 45% {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    50%, 80% {
+        opacity: 0;
+        pointer-events: none;
+    }
+    85%, 100% {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@keyframes buttonSlide2 {
+    0%, 45% {
+        opacity: 0;
+        pointer-events: none;
+    }
+    50%, 80% {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    85%, 100% {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 /* Футер */
