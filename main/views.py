@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponseNotFound
+from .models import Stuff
 
 # Create your views here.
 
@@ -8,6 +9,14 @@ def main_page(request):
 
 def new_stuff(request):
     return render(request, "main/new_stuff.html", {"title": "New Stuff"})
+
+def all_stuff(request):
+    stuffs = Stuff.objects.all()
+    dataset = {
+        'stuffs': stuffs,
+        'title': 'All Stuff',
+    }
+    return render(request, "main/all_stuff.html", dataset)
 
 def outerwear(request):
     return render(request, "main/outerwear.html", {"title": "Outwear"})

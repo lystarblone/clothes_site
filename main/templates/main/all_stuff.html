@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Список товаров</h1>
+
+<ul>
+    {% for stuff in stuffs %}
+        <li>{{ stuff.name }}</li>
+    {% empty %}
+        <li>Товаров пока нет.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

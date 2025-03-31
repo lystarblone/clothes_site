@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="content">
-    <div class="main_banner">
-        <img src="{% static 'main/img/banner1.jpeg' %}" alt="main_banner">
+<div class="main_banner">
+    <div class="banner-slider">
+        <img src="{% static 'main/img/banner1.jpeg' %}" alt="main_banner_1">
+        <img src="{% static 'main/img/banner.jpeg' %}" alt="main_banner_2">
     </div>
+    <a href="{% url 'collections' %}" class="banner-button">Discover More</a>
 </div>
 <h3>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla vitae lorem efficitur malesuada.

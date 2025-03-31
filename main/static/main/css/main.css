@@ -1,3 +1,4 @@
+/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +11,7 @@ body {
     padding-top: 5.5vw;
 }
 
-/* Стили для верхней панели */
+/* Стили для верхней панели (header) */
 header {
     height: 6vw;
     background: linear-gradient(90deg, #003366, #4e88b8);
@@ -26,20 +27,17 @@ header {
     z-index: 1000;
 }
 
-/* Контейнер для логотипа и меню */
 .container {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-/* Логотип */
 header .logo {
     height: 3.1vw;
     margin-right: 2.4vw;
 }
 
-/* Навигационное меню */
 nav ul {
     list-style: none;
     display: flex;
@@ -64,21 +62,86 @@ nav ul li a:hover {
 }
 
 body:not(:has(.scrolled)) .content {
-    transform: translateY(0); /* Контент возвращается в нормальное положение при прокрутке до верха страницы */
+    transform: translateY(0);
 }
 
+/* Стили для баннера */
 .main_banner {
+    position: relative;
     width: 100%;
+    height: 90vh;
     overflow: hidden;
 }
 
-.main_banner img {
+.banner-slider {
+    position: relative;
     width: 100%;
-    height: 48vw;
-    object-fit: cover;
-    display: block;
+    height: 100%;
 }
 
+.banner-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Начальное состояние изображений */
+    transition: opacity 3s ease-in-out; /* Плавное изменение прозрачности */
+}
+
+.banner-slider img:nth-child(1) {
+    animation: bannerSlide1 20s infinite; /* Увеличенное время анимации */
+}
+
+.banner-slider img:nth-child(2) {
+    animation: bannerSlide2 20s infinite; /* Увеличенное время анимации */
+}
+
+@keyframes bannerSlide1 {
+    0%, 45% {
+        opacity: 1; /* Первое изображение видимо первые 9 секунд */
+    }
+    55%, 100% {
+        opacity: 0; /* Первое изображение исчезает за 5 секунд */
+    }
+}
+
+@keyframes bannerSlide2 {
+    0%, 45% {
+        opacity: 0; /* Второе изображение невидимо первые 9 секунд */
+    }
+    55%, 100% {
+        opacity: 1; /* Второе изображение появляется за 5 секунд */
+    }
+}
+
+/* Стили для кнопки */
+.banner-button {
+    position: absolute;
+    bottom: 7%;
+    left: 24%;
+    transform: translateX(-50%);
+    background-color: #FFB100;
+    color: #fff;
+    border: none;
+    padding: 1vw 2vw;
+    font-size: 1.7vw;
+    cursor: pointer;
+    border-radius: 2vw;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 13vw;
+}
+
+.banner-button:hover {
+    background-color: #FFD700;
+    transform: translate(-50%, -5%) scale(1.02);
+}
+
+/* Футер */
 .footer-banner {
     background-color: #000;
     color: #fff;
@@ -144,7 +207,6 @@ body:not(:has(.scrolled)) .content {
     text-align: center;
     flex: 1;
     justify-content: flex-start;
-
 }
 
 .footer-right1,
