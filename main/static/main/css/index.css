@@ -133,10 +133,173 @@ body:not(:has(.scrolled)) .content {
 }
 
 #big-title {
-    font-size: 2.7rem;
+    font-size: 2.1rem;
     margin: 1rem 1.2rem;
+    margin-bottom: 0.4vw;
     background: linear-gradient(90deg, #063e69, #2f66b2);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+/* Стили для панели новых товаров */
+.new-products-panel {
+    position: relative;
+    margin-top: 1vw;
+    background-color: #f9f9f9;
+    border-radius: 1vw;
+    box-shadow: 
+        -2px -2px 4px rgba(255, 255, 255, 0.8),
+        2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-container {
+    height: 42vw;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1vw;
+    background: #eaeaea;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2.45vw;
+    margin: 0 1vw;
+}
+
+.product-item {
+    margin: 1.5vw;
+    margin-right: 0.1vw;
+    position: relative;
+    flex: 0 0 calc(80% / 5);
+    max-width: calc(80% / 4);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.5vw;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-item::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.product-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5vw;
+}
+
+.product-item .main-image {
+    z-index: 2;
+    transition: opacity 0.2s ease;
+}
+
+.product-item .hover-image {
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.product-item:not(.no-hover):hover .main-image {
+    opacity: 0;
+}
+
+.product-item:not(.no-hover):hover .hover-image {
+    opacity: 1;
+}
+
+.product-item.no-hover .main-image:hover {
+    transform: rotateY(180deg);
+}
+
+/* Стили для кнопки-фотографии */
+.down-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    z-index: 10;
+    margin-bottom: -0.5vw;
+}
+
+.down-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.down-button:hover img {
+    transform: scale(1.1);
+}
+
+/* Стили для секции с двумя баннерами */
+.banner-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem; /* Отступ от предыдущего блока */
+    padding-left: 2rem; /* Отступ слева */
+    padding-right: 2rem; /* Отступ справа */
+    gap: 1rem; /* Расстояние между баннерами */
+}
+
+.banner-item {
+    flex: 1; /* Каждый баннер займёт равную часть ширины */
+    max-width: calc(50% - 1rem); /* Максимальная ширина каждого баннера с учетом отступов */
+    overflow: hidden;
+    border-radius: 1vw;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin: 0;
+}
+
+.banner-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.banner-item:hover {
+    transform: scale(1.02); /* Анимация при наведении курсора */
+}
+
+/* Стили для баннера на всю ширину */
+.full-width-banner {
+    margin-top: 2rem; /* Отступ сверху */
+    margin-bottom: 1rem;
+    width: 100%; /* Полная ширина */
+    height: auto;
+    overflow: hidden;
+    border-radius: 1vw; /* Округление углов */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Тень для акцента */
+}
+
+.full-width-banner a {
+    display: block; /* Делаем ссылку блочным элементом */
+    width: 100%;
+    height: auto;
+    text-decoration: none; /* Убираем подчёркивание ссылки */
+}
+
+.full-width-banner img {
+    width: 100%; /* Изображение занимает всю ширину */
+    object-fit: cover; /* Корректное масштабирование изображения */
+    display: block; /* Убираем возможные пробелы */
 }

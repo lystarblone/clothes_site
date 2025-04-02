@@ -14,13 +14,50 @@
     <a href="{% url 'collections' %}" class="banner-button banner-button-1">Discover More</a>
     <a href="{% url 'collections' %}" class="banner-button banner-button-2">Discover More</a>
 </div>
-<h1 id="big-title">Stuff Catalog</h1>
 
-<ul class="gray-list">
-    {% for stuff in stuffs %}
-        <li>{{ stuff.name }}</li>
-    {% empty %}
-        <li>Товаров пока нет.</li>
-    {% endfor %}
-</ul>
+<h1 id="big-title">New Stuff Arrivals:</h1>
+<div class="new-products-panel">
+    <div class="product-container">
+        <div class="product-grid">
+            {% for stuff in latest_stuffs|slice:":5" %}
+                {% with first_image=stuff.images.first second_image=stuff.images.all.1 %}
+                    <div class="product-item {% if not second_image %}no-hover{% endif %}">
+                        <img src="{{ first_image.image.url }}" alt="{{ stuff.name }}" class="main-image">                        
+                        {% if second_image %}
+                            <img src="{{ second_image.image.url }}" alt="{{ stuff.name }}" class="hover-image">
+                        {% endif %}
+                    </div>
+                {% endwith %}
+            {% endfor %}
+        </div>
+        <div class="product-grid">
+            {% for stuff in latest_stuffs|slice:"5:10" %}
+                {% with first_image=stuff.images.first second_image=stuff.images.all.1 %}
+                    <div class="product-item {% if not second_image %}no-hover{% endif %}">
+                        <img src="{{ first_image.image.url }}" alt="{{ stuff.name }}" class="main-image">
+                        {% if second_image %}
+                            <img src="{{ second_image.image.url }}" alt="{{ stuff.name }}" class="hover-image">
+                        {% endif %}
+                    </div>
+                {% endwith %}
+            {% endfor %}
+        </div>    
+    </div>
+
+    <a href="new_stuff" class="down-button">
+        <img src="{% static 'main/img/index/down.png' %}" alt="Scroll Down">
+    </a>
+</div>
+
+<div class="banner-section">
+    <a href="#" class="banner-item">
+        <img src="{% static 'main/img/sub_banner.jpeg' %}" alt="Banner Left">
+    </a>
+    <a href="#" class="banner-item">
+        <img src="{% static 'main/img/sub_banner1.png' %}" alt="Banner Right">
+    </a>
+</div>
+<div class="full-width-banner">
+    <img src="{% static 'main/img/index/final_banner.jpeg' %}" alt="Full Width Banner">
+</div>
 {% endblock content %}

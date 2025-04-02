@@ -1,11 +1,12 @@
 from django.contrib import admin
+from django.utils.html import format_html
 
 # Register your models here.
-from .models import Stuff
+from .models import Stuff, StuffImage
 
 @admin.register(Stuff)
 class StuffAdmin(admin.ModelAdmin):
-    list_display = ["id", "name", "short_description", "slug", "price", "type", "collection", "time_create", "last_char"]
+    list_display = ["id", "name", "short_description", "slug", "price", "type", "collection", "time_create", "first_photo"]
     list_filter = ["name", "price", "time_create"]
     search_fields = ["name", "description"]
     ordering = ["-time_create"]
@@ -18,6 +19,23 @@ class StuffAdmin(admin.ModelAdmin):
     def short_description(self, obj):
         return f"{obj.description[:80]}" if obj.description else ""
 
-    @admin.display(description="Last char in name")
-    def last_char(self, stuff: Stuff):
-        return f"Last char in name is {stuff.name[-1]}"
+    @admin.display(description="Photo")
+    def first_photo(self, stuff_image: StuffImage):
+        first_image = stuff_image.images.first()
+        if first_image:
+                return format_html(
+                    '<img src="{}" width="50" height="50" />', 
+                    first_image.image.url
+                )
+        return "-"
+
+@admin.register(StuffImage)
+class StuffImageAdmin(admin.ModelAdmin):
+    list_display = ["id", "stuff", "image_thumbnail"]
+
+    @admin.display(description="Thumbnail")
+    def image_thumbnail(self, obj):
+        return format_html(
+            '<img src="{}" width="50" height="50" />', 
+            obj.image.url
+        )

@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", views.main_page, name="main_page"),
@@ -18,4 +20,5 @@ urlpatterns = [
     path("client_resources/contacts", views.contacts, name="contacts"),
     path("client_resources/privacy_policy", views.privacy_policy, name="privacy_policy"),
     path("client_resources/terms_of_use", views.terms_of_use, name="terms_of_use"),
-]
+    path("auth", views.auth, name="auth"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

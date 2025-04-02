@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponseNotFound
 from .models import Stuff
+from .forms import AuthForm
 
 # Create your views here.
 
 def main_page(request):
-    stuffs = Stuff.objects.all()
     dataset = {
-        'stuffs': stuffs,
+        'stuffs': Stuff.objects.all(),
+        "latest_stuffs": Stuff.objects.order_by('-time_create')[:10],
         'title': 'Polaris Aurora',
     }
     return render(request, "main/index.html", dataset)
@@ -56,6 +57,24 @@ def privacy_policy(request):
 
 def terms_of_use(request):
     return render(request, "main/client_resources/terms_of_use.html", {"title": "Terms of Use"})
+
+def auth(request):
+    if request.method == "POST":
+        form = AuthForm(request.POST)
+        if form.is_valid():
+            try:
+                Stuff.objects.create(**form.cleaned_data)
+                return redirect("main_page")
+            except:
+                form.add_error(None, "ошибкаааааа!")
+    else:
+        form = AuthForm()
+
+    dataset = {
+        "title": "Terms of Use",
+        "form": form,
+    }
+    return render(request, "main/auth.html", dataset)
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена')
