@@ -17,8 +17,10 @@ class Type(models.Model):
         return self.name
 
 class Collection(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Название коллекции')
+    name = models.CharField(max_length=50, unique=True, verbose_name='Название коллекции')
     description = models.TextField(blank=True, null=True, verbose_name='Описание коллекции')
+    slug = models.SlugField(max_length=50, unique=True, verbose_name='Слаг')
+    image = models.ImageField(null=True, verbose_name="image")
 
     def __str__(self):
         return self.name

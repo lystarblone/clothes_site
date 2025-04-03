@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponseNotFound
-from .models import Stuff
+from .models import Stuff, Collection
 from .forms import AuthForm
 
 # Create your views here.
@@ -9,6 +9,7 @@ def main_page(request):
     dataset = {
         'stuffs': Stuff.objects.all(),
         "latest_stuffs": Stuff.objects.order_by('-time_create')[:10],
+        "collections": Collection.objects.filter(pk__in=[4, 5]),
         'title': 'Polaris Aurora',
     }
     return render(request, "main/index.html", dataset)
@@ -29,7 +30,11 @@ def sportswear(request):
     return render(request, "main/sportswear.html", {"title": "Sportswear"})
 
 def collections(request):
-    return render(request, "main/Collections.html", {"title": "Collections"})
+    dataset = {
+        "collections": Collection.objects.order_by('-pk').all(),
+        "title": "Collections",
+    }
+    return render(request, "main/Collections.html", dataset)
 
 def guides(request):
     return render(request, "main/client_resources/main.html", {"title": "Client Resources"})

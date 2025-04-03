@@ -89,7 +89,7 @@ nav ul li a:hover {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-size: 1.8rem;
+    font-size: 2vw;
     margin-bottom: 1rem;
 }
 

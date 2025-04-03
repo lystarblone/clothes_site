@@ -1,8 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/collections.css' %}">
+{% endblock styles %}
+
 {% block content %}
-<h3>
-Collections
-</h3>
+    {% if collections %}
+        <div class="collection-list">
+            {% for data in collections %}
+                <div class="collection-card">
+                    {% if data.image %}
+                        <img src="{{ data.image.url }}" alt="{{ data.name }}">
+                    {% else %}
+                        <div style="width: 200px; height: 200px; background-color: #ddd; border-radius: 0.5vw;"></div>
+                    {% endif %}
+
+                    <div class="content">
+                        <h1 class="gradient-text">{{ data.name }}</h1>
+                        <p gray-text>{{ data.description|linebreaks }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No data available in the database.</p>
+    {% endif %}
 {% endblock content %}

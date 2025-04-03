@@ -1,0 +1,35 @@
+/* Стили для карточки коллекции */
+.collection-card {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по центру по вертикали */
+    margin-bottom: 2rem; /* Отступ между карточками */
+    background-color: #fff; /* Фон карточки */
+    padding: 1.5rem; /* Внутренние отступы */
+    border-radius: 0.8vw; /* Закругление углов */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень для объёмности */
+}
+
+.collection-card img {
+    max-width: 30vw; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: cover; /* Корректное масштабирование изображения */
+    border-radius: 0.5vw; /* Закругление углов изображения */
+    margin-right: 8vw; /* Отступ между изображением и текстом */
+}
+
+.collection-card .content {
+    flex: 1; /* Текст занимает оставшееся пространство */
+    max-width: 49vw;
+}
+
+.collection-card p {
+    font-size: 1.1vw; /* Размер описания */
+    color: #555; /* Цвет текста */
+    line-height: 1.6; /* Интервал между строками */
+    margin-bottom: 1.5rem;
+}
+
+/* Добавляем отступ над заголовком Collection Data */
+h1.gradient-text {
+    margin-top: 2rem; /* Устанавливаем верхний отступ */
+}

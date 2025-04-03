@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 # Register your models here.
-from .models import Stuff, StuffImage
+from .models import Stuff, StuffImage, Collection
 
 @admin.register(Stuff)
 class StuffAdmin(admin.ModelAdmin):
@@ -39,3 +39,17 @@ class StuffImageAdmin(admin.ModelAdmin):
             '<img src="{}" width="50" height="50" />', 
             obj.image.url
         )
+    
+@admin.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+     list_display = ["id", "name", "description", "slug", "collection_image"]
+     prepopulated_fields = {"slug": ("name",)}
+     
+     @admin.display(description="Image")
+     def collection_image(self, collection_image: Collection):
+        if collection_image.image:
+                return format_html(
+                    '<img src="{}" width="50" height="50" />', 
+                    collection_image.image.url
+                )
+        return "-"
