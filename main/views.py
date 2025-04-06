@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
+from django.core.paginator import Paginator
 from django.http import HttpResponseNotFound
-from .models import Stuff, Collection
+from .models import Stuff, Collection, StuffImage
 from .forms import AuthForm
 
 # Create your views here.
@@ -15,7 +16,15 @@ def main_page(request):
     return render(request, "main/index.html", dataset)
 
 def new_stuff(request):
-    return render(request, "main/new_stuff.html", {"title": "New Stuff"})
+    products = Stuff.objects.all().order_by('-pk').prefetch_related('images')
+    paginator = Paginator(products, 50)
+
+    dataset = {
+        "page_obj": paginator.get_page(request.GET.get('page')),
+        "title": "New Stuff"
+    }
+    
+    return render(request, "main/new_stuff.html", dataset)
 
 def outerwear(request):
     return render(request, "main/outerwear.html", {"title": "Outwear"})

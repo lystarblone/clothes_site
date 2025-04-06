@@ -6,13 +6,13 @@ from .models import Stuff, StuffImage, Collection
 
 @admin.register(Stuff)
 class StuffAdmin(admin.ModelAdmin):
-    list_display = ["id", "name", "short_description", "slug", "price", "type", "collection", "time_create", "first_photo"]
+    list_display = ["id", "name", "short_name", "short_description", "slug", "price", "type", "collection", "time_create", "first_photo"]
     list_filter = ["name", "price", "time_create"]
     search_fields = ["name", "description"]
     ordering = ["-time_create"]
     prepopulated_fields = {"slug": ("name",)}
     date_hierarchy = "time_create"
-    list_editable = ("type",)
+    list_editable = ("type", )
     list_display_links = ["name"]
 
     @admin.display(description="Short Description")
@@ -42,11 +42,11 @@ class StuffImageAdmin(admin.ModelAdmin):
     
 @admin.register(Collection)
 class CollectionAdmin(admin.ModelAdmin):
-     list_display = ["id", "name", "description", "slug", "collection_image"]
-     prepopulated_fields = {"slug": ("name",)}
+    list_display = ["id", "name", "description", "slug", "collection_image"]
+    prepopulated_fields = {"slug": ("name",)}
      
-     @admin.display(description="Image")
-     def collection_image(self, collection_image: Collection):
+    @admin.display(description="Image")
+    def collection_image(self, collection_image: Collection):
         if collection_image.image:
                 return format_html(
                     '<img src="{}" width="50" height="50" />', 

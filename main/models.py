@@ -27,6 +27,7 @@ class Collection(models.Model):
 
 class Stuff(models.Model):
     name = models.CharField(max_length=50, unique=True, db_index=True, verbose_name='Название товара')
+    short_name = models.CharField(max_length=50, blank=True, verbose_name='Короткое название')
     description = models.TextField(blank=True, null=True, verbose_name='Описание товара')
     slug = models.SlugField(max_length=50, unique=True, verbose_name='Слаг')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')

@@ -1,0 +1,181 @@
+/* Стили для верхней полоски */
+.page-header {
+    background-color: #c3dbed; /* Нежно-синий фон */
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9vw;
+    margin-left: 1rem;
+    max-width: 80%;
+    align-items: center;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.25s ease;
+    font-size: 1vw;
+}
+
+.breadcrumb-item a:hover {
+    color: #FFB100;
+}
+
+.breadcrumb-item.active {
+    font-weight: bold;
+}
+
+.new-arrivals-title {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.4vw;
+    margin-bottom: 1rem;
+}
+
+/* Стили для панели новых товаров */
+.new-products-panel {
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 1vw;
+}
+
+.product-container {
+    position: relative;
+    overflow: visible;
+    border-radius: 1vw;
+    background: #eaeaea;
+    margin-left: 0.6vw;
+    margin-right: 0.6vw;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2.45vw;
+    margin: 0 1vw;
+}
+
+.product-item {
+    margin-top: 3vw;
+    margin-left: 1.8vw;
+    position: relative;
+    flex: 0 0 calc(80% / 5);
+    max-width: calc(80% / 5);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.5vw;
+}
+
+.product-item:nth-last-child(-n+5) {
+    margin-bottom: 2vw;
+}
+
+/* Контейнер для изображений */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 0.5vw;
+    transition: opacity 0.2s ease;
+}
+
+.image-container .hover-image {
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+/* При наведении показываем второе изображение */
+.image-container:not(.no-hover):hover .main-image {
+    opacity: 0;
+}
+
+.image-container:not(.no-hover):hover .hover-image {
+    opacity: 1;
+}
+
+.image-container.no-hover .main-image:hover {
+    transform: rotateY(180deg);
+}
+
+/* Стили для блока с информацией о товаре */
+.product-info {
+    margin-top: 1vw;
+    text-align: center;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0 1vw;
+}
+
+.product-name {
+    font-size: 1vw;
+    font-weight: bold;
+    margin-bottom: 0.2vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    font-size: 0.9vw;
+    font-weight: bold;
+}
+
+/* Стили для пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 1.1vw;
+    color: #333;
+}
+
+.step-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.step-links a,
+.step-links span.current {
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step-links a:hover {
+    background-color: #eaeaea;
+}
+
+.step-links span.current {
+    background-color: #eaeaea;
+}
