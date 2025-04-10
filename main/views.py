@@ -1,7 +1,7 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
 from django.http import HttpResponseNotFound
-from .models import Stuff, Collection, StuffImage
+from .models import Stuff, Collection
 from .forms import AuthForm
 
 # Create your views here.
@@ -28,9 +28,6 @@ def new_stuff(request):
 
 def outerwear(request):
     return render(request, "main/outerwear.html", {"title": "Outwear"})
-
-def bottoms(request):
-    return render(request, "main/bottoms.html", {"title": "Bottoms"})
 
 def accessories(request):
     return render(request, "main/accessories.html", {"title": "Accessories"})
@@ -76,19 +73,30 @@ def auth(request):
     if request.method == "POST":
         form = AuthForm(request.POST)
         if form.is_valid():
-            try:
+            """try:
                 Stuff.objects.create(**form.cleaned_data)
                 return redirect("main_page")
             except:
-                form.add_error(None, "ошибкаааааа!")
+                form.add_error(None, "ошибкаааааа!")"""
+            form.save()
+            return redirect("main_page")
     else:
         form = AuthForm()
 
     dataset = {
-        "title": "Terms of Use",
+        "title": "Auth",
         "form": form,
     }
     return render(request, "main/auth.html", dataset)
+
+def stuff(request, slug):
+    product = get_object_or_404(Stuff, slug=slug)
+    title = f"Product: {product.short_name}"
+    dataset = {
+        "title": title,
+        "product": product,
+    }
+    return render(request, "main/stuff.html", dataset)
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена')

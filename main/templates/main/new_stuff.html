@@ -26,11 +26,15 @@
                 <!-- Контейнер для изображений -->
                 <div class="image-container {% if not product.images.all.1 %}no-hover{% endif %}">
                     {% if product.images.all %}
-                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image">
+                        <a href="{% url 'product_detail' slug=product.slug %}">
+                            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image">
+                        </a>
                         
                         {% with second_image=product.images.all.1 %}
                             {% if second_image %}
-                                <img src="{{ second_image.image.url }}" alt="{{ product.name }} (Hover)" class="hover-image">
+                                <a href="{% url 'product_detail' slug=product.slug %}">
+                                    <img src="{{ second_image.image.url }}" alt="{{ product.name }} (Hover)" class="hover-image">
+                                </a>
                             {% endif %}
                         {% endwith %}
                     {% endif %}

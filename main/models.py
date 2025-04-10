@@ -4,39 +4,39 @@ from django.db import models
 
 class User(models.Model):
     email = models.EmailField(unique=True, verbose_name='Email')
-    password = models.CharField(max_length=100, verbose_name='Пароль')
-    first_name = models.CharField(max_length=50, verbose_name='Имя')
-    last_name = models.CharField(max_length=50, verbose_name='Фамилия')
-    phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Телефон')
-    adress = models.TextField(blank=True, null=True, verbose_name='Адрес')
+    password = models.CharField(max_length=100, verbose_name='Password')
+    first_name = models.CharField(max_length=50, verbose_name='Name')
+    last_name = models.CharField(max_length=50, verbose_name='Surname')
+    phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Phone number')
+    adress = models.TextField(blank=True, null=True, verbose_name='Adress')
 
 class Type(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Тип товара')
+    name = models.CharField(max_length=50, verbose_name='Stuff type')
 
     def __str__(self):
         return self.name
 
 class Collection(models.Model):
-    name = models.CharField(max_length=50, unique=True, verbose_name='Название коллекции')
-    description = models.TextField(blank=True, null=True, verbose_name='Описание коллекции')
-    slug = models.SlugField(max_length=50, unique=True, verbose_name='Слаг')
-    image = models.ImageField(null=True, verbose_name="image")
+    name = models.CharField(max_length=50, unique=True, verbose_name='Collection name')
+    description = models.TextField(blank=True, null=True, verbose_name='Collection description')
+    slug = models.SlugField(max_length=50, unique=True, verbose_name='Slug')
+    image = models.ImageField(null=True, verbose_name="Image")
 
     def __str__(self):
         return self.name
 
 class Stuff(models.Model):
-    name = models.CharField(max_length=50, unique=True, db_index=True, verbose_name='Название товара')
-    short_name = models.CharField(max_length=50, blank=True, verbose_name='Короткое название')
-    description = models.TextField(blank=True, null=True, verbose_name='Описание товара')
-    slug = models.SlugField(max_length=50, unique=True, verbose_name='Слаг')
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
+    name = models.CharField(max_length=50, unique=True, db_index=True, verbose_name='Stuff name')
+    short_name = models.CharField(max_length=50, blank=True, verbose_name='Short stuff name')
+    description = models.TextField(blank=True, null=True, verbose_name='Stuff description')
+    slug = models.SlugField(max_length=50, unique=True, verbose_name='Slug')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
     
     type = models.ForeignKey(
         Type,
         on_delete=models.CASCADE,
         related_name='stuff_items',
-        verbose_name='Тип товара',
+        verbose_name='Stuff type',
         default=1
     )
     
@@ -46,10 +46,10 @@ class Stuff(models.Model):
         blank=True,
         null=True,
         related_name='stuff_items',
-        verbose_name='Коллекция'
+        verbose_name='Collection'
     )
 
-    time_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name='Created')
 
     def __str__(self):
         return self.name
