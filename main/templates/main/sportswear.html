@@ -1,8 +1,44 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/new_stuff.css' %}">
+{% endblock styles %}
+
 {% block content %}
-<h3>
-Sportswear
-</h3>
+<div class="page-header">
+    <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'main_page' %}">Homepage</a></li>
+            <span>-</span>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'sportswear' %}">Sportswear</a></li>
+        </ul>
+    </nav>
+</div>
+
+<h1 class="new-arrivals-title">Sportswear:</h1>
+
+<div class="new-products-panel">
+    <div class="product-container">
+        {% include "main/product_grid.html" with products=page_obj %}
+    </div>
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock content %}

@@ -1,0 +1,206 @@
+/* Основные стили */
+
+.hidden-radio {
+    display: none;
+}
+
+.product-gallery {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 1.5vw;
+}
+
+/* Блок миниатюр */
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    max-width: 8.5vw;
+    margin-left: 2vw;
+}
+
+.thumbnail-label {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5vw;
+}
+
+/* Большое изображение */
+
+.main-image-container {
+    width: 40vw;
+    height: 40vw;
+    background-color: #fff;
+    border-radius: 1vw;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 1vw;
+}
+
+.main-image-item {
+    display: none;
+}
+
+.main-image-container > .main-image-item:first-child {
+    display: block;
+}
+
+input[type="radio"]:checked ~ .main-image-container > .main-image-item {
+    display: block;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 1vw;
+}
+
+/* Информация о товаре */
+
+.product-info {
+    padding: 1vw;
+    background-color: #f9f9f9;
+    border-radius: 1vw;
+    width: 43vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.product-name {
+    font-size: clamp(16px, 1.6vw, 24px);
+    margin: 0;
+    color: #000;
+    font-weight: 590;
+}
+
+.product-price {
+    font-size: clamp(14px, 1.5vw, 20px);
+    color: #063e69;
+}
+
+.product-description {
+    font-size: 1.3vw;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1vw;
+    padding-left: 1vw;
+    text-indent: 1vw;
+}
+
+/* Выбор размера и кнопки */
+
+.size-selector {
+    display: flex;
+    gap: 0.8vw;
+    align-items: center;
+}
+
+.size-btn input[type="radio"] {
+    display: none;
+}
+
+.size-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.7vw;
+    height: 2.7vw;
+    border: 0.12vw solid transparent;
+    border-radius: 50%;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #000;
+    box-sizing: border-box;
+    transition: outline 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.size-btn span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 2.7vw;
+}
+
+.size-btn input[type="radio"]:checked + span {
+    outline: 0.12vw solid #000;
+    outline-offset: -0.12vw;
+    border-radius: 50%;
+}
+
+.size-guide-link {
+    margin-left: 1vw;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.size-guide-link:hover {
+    text-decoration: underline;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.like-btn {
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.like-btn:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+}
+
+/* Заголовки */
+
+.description-title {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: #063e69;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1vw;
+}
+
+.size {
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-bottom: .5vw;
+}

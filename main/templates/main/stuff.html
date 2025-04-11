@@ -1,11 +1,86 @@
 {% extends "base.html" %}
-
 {% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/stuff.css' %}">
+{% endblock styles %}
+
 {% block content %}
-<div class='product_detais'>
-    <h1>{{ title }}</h1>
-    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="product-image">
-    <p>{{ product.description }}</p>
-    <p>Price: £{{ product.price }}</p>
+<div class="product-details">
+    <!-- Блок с миниатюрами, большим изображением и информацией о товаре -->
+    <div class="product-gallery">
+        <!-- Боковая панель с миниатюрами -->
+        <div class="thumbnail-container">
+            {% for image in product.images.all %}
+                <label for="image-{{ forloop.counter }}" class="thumbnail-label">
+                    <img src="{{ image.image.url }}" alt="{{ product.name }}" class="thumbnail-image">
+                </label>
+                <input type="radio" id="image-{{ forloop.counter }}" name="product-image" class="hidden-radio"{% if forloop.first %} checked{% endif %}>
+            {% empty %}
+                <p>No images available.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Центральная панель с большим изображением -->
+        <div class="main-image-container">
+            {% for image in product.images.all %}
+                <div class="main-image-item" id="main-image-{{ forloop.counter }}">
+                    <img src="{{ image.image.url }}" alt="{{ product.name }}" class="product-image">
+                </div>
+            {% empty %}
+                <p>No images available.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Информация о товаре справа от главного изображения -->
+        <div class="product-info">
+            <h1 class="product-name gradient-text">{{ product.name }}</h1>
+            <p class="product-price gradient-text">Price: £{{ product.price }}</p>
+
+            <!-- Форма для выбора размера и добавления в корзину -->
+            <form method="POST" action="" class="cart-form">
+                {% csrf_token %}
+                <div class="size gradient-text">Size:</div>
+                <div class="size-selector">
+                    <label for="size-S" class="size-btn">
+                        <input type="radio" id="size-S" name="size" value="S" checked>
+                        <span>S</span>
+                    </label>
+                    <label for="size-M" class="size-btn">
+                        <input type="radio" id="size-M" name="size" value="M">
+                        <span>M</span>
+                    </label>
+                    <label for="size-L" class="size-btn">
+                        <input type="radio" id="size-L" name="size" value="L">
+                        <span>L</span>
+                    </label>
+                    <label for="size-XL" class="size-btn">
+                        <input type="radio" id="size-XL" name="size" value="XL">
+                        <span>XL</span>
+                    </label>
+                    <label for="size-XXL" class="size-btn">
+                        <input type="radio" id="size-XXL" name="size" value="XXL">
+                        <span>XXL</span>
+                    </label>
+                </div>
+                <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+            </form>
+
+            <!-- Форма для лайка -->
+            <form method="POST" action="" class="like-form">
+                {% csrf_token %}
+                <button type="submit" class="like-btn">
+                    {% if product.is_liked_by_user %}
+                        Unlike
+                    {% else %}
+                        Like
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+    <h1 class="description-title">Description:</h1>
+    <p class="product-description gray-text">{{ product.description }}</p>
 </div>
 {% endblock content %}

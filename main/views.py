@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
 from django.http import HttpResponseNotFound
-from .models import Stuff, Collection
+from .models import Stuff, Collection, Type
 from .forms import AuthForm
 
 # Create your views here.
@@ -97,6 +97,39 @@ def stuff(request, slug):
         "product": product,
     }
     return render(request, "main/stuff.html", dataset)
+
+def outerwear(request):
+    products = Stuff.objects.filter(type=Type.objects.get(name="Outerwear")).order_by('-pk').prefetch_related('images')
+    paginator = Paginator(products, 50)
+
+    dataset = {
+        "page_obj": paginator.get_page(request.GET.get('page')),
+        "title": "Outerwear"
+    }
+    
+    return render(request, "main/outerwear.html", dataset)
+
+def accessories(request):
+    products = Stuff.objects.filter(type=Type.objects.get(name="Accessories")).order_by('-pk').prefetch_related('images')
+    paginator = Paginator(products, 50)
+
+    dataset = {
+        "page_obj": paginator.get_page(request.GET.get('page')),
+        "title": "Accessories"
+    }
+    
+    return render(request, "main/accessories.html", dataset)
+
+def sportswear(request):
+    products = Stuff.objects.filter(type=Type.objects.get(name="Sportswear")).order_by('-pk').prefetch_related('images')
+    paginator = Paginator(products, 50)
+
+    dataset = {
+        "page_obj": paginator.get_page(request.GET.get('page')),
+        "title": "Sportswear"
+    }
+    
+    return render(request, "main/sportswear.html", dataset)
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена')

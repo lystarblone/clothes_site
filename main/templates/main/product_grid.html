@@ -1,0 +1,30 @@
+<!-- templates/main/product_grid.html -->
+<div class="product-grid">
+    {% for product in products %}
+        <div class="product-item">
+            <!-- Контейнер для изображений -->
+            <div class="image-container {% if not product.images.all.1 %}no-hover{% endif %}">
+                {% if product.images.all %}
+                    <a href="{% url 'product_detail' slug=product.slug %}">
+                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image">
+                    </a>
+                    
+                    {% with second_image=product.images.all.1 %}
+                        {% if second_image %}
+                            <a href="{% url 'product_detail' slug=product.slug %}">
+                                <img src="{{ second_image.image.url }}" alt="{{ product.name }} (Hover)" class="hover-image">
+                            </a>
+                        {% endif %}
+                    {% endwith %}
+                {% endif %}
+            </div>
+
+            <div class="product-info">
+                <p class="product-name">{{ product.short_name }}</p>
+                <p class="product-price">£{{ product.price }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p>No new arrivals available.</p>
+    {% endfor %}
+</div>
