@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -19,6 +19,6 @@ urlpatterns = [
     path("client_resources/contacts/", views.contacts, name="contacts"),
     path("client_resources/privacy_policy/", views.privacy_policy, name="privacy_policy"),
     path("client_resources/terms_of_use/", views.terms_of_use, name="terms_of_use"),
-    path("auth/", views.auth, name="auth"),
     path("new_stuff/<slug:slug>/", views.stuff, name="product_detail"),
+    path("users/", include("users.urls", namespace="users")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

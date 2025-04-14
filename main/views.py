@@ -69,15 +69,15 @@ def privacy_policy(request):
 def terms_of_use(request):
     return render(request, "main/client_resources/terms_of_use.html", {"title": "Terms of Use"})
 
-def auth(request):
+"""def auth(request):
     if request.method == "POST":
         form = AuthForm(request.POST)
         if form.is_valid():
-            """try:
+            try:
                 Stuff.objects.create(**form.cleaned_data)
                 return redirect("main_page")
             except:
-                form.add_error(None, "ошибкаааааа!")"""
+                form.add_error(None, "ошибкаааааа!")
             form.save()
             return redirect("main_page")
     else:
@@ -87,7 +87,7 @@ def auth(request):
         "title": "Auth",
         "form": form,
     }
-    return render(request, "main/auth.html", dataset)
+    return render(request, "main/auth.html", dataset)"""
 
 def stuff(request, slug):
     product = get_object_or_404(Stuff, slug=slug)
