@@ -53,3 +53,5 @@ logs/
 
 # Файлы OS X
 .DS_Store
+
+config.py

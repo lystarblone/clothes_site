@@ -144,12 +144,14 @@ AUTHENTICATION_BACKENDS = [
     'users.authentication.EmailAuthBackend',
 ]
 
+from clothes_shop.config import YANDEX_PASSWORD, YANDEX_EMAIL
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'belkaYbitsa@yandex.ru'
-EMAIL_HOST_PASSWORD = 'ddihamedxfnktamp'
+EMAIL_HOST_USER = YANDEX_EMAIL
+EMAIL_HOST_PASSWORD = YANDEX_PASSWORD
 EMAIL_USE_SSL = True
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
