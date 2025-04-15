@@ -20,16 +20,7 @@
         </div>
         {% endfor %}
 
-        <button type="submit" class="save-button">Save changes</button>
+        <button type="submit" class="save-button">Change password</button>
     </form>
-
-    {% if user.is_authenticated %}
-    <form method="POST" action="{% url 'users:logout' %}" class="logout-form">
-        {% csrf_token %}
-        <button type="submit" class="logout-button">Logout from account</button>
-    </form>
-    {% endif %}
-    <hr>
-    <p><a href="{% url 'users:change_password' %}">Change Password</a></p>
 </div>
 {% endblock %}
