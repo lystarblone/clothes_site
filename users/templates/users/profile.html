@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="profile-container">
+    <h1 class="profile-title">Профиль</h1>
+
+    <form method="post" class="profile-form">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for f in form %}
+        <div class="form-group">
+            <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>
+            {{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="save-button">Сохранить изменения</button>
+    </form>
+
+    {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'users:logout' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">Выйти из аккаунта</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
