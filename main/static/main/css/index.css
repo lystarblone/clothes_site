@@ -257,6 +257,7 @@ body:not(:has(.scrolled)) .content {
     padding-left: 2rem; /* Отступ слева */
     padding-right: 2rem; /* Отступ справа */
     gap: 1rem; /* Расстояние между баннерами */
+    height: 100vh;
 }
 
 .banner-item {
