@@ -101,3 +101,26 @@ input[type="password"]:focus {
     background-color: #e74c3c;
     color: white;
 }
+
+/* Кнопка "Change Password" */
+.change-password-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 20px; /* Отступ сверху */
+    background-color: transparent;
+    color: #28a745; /* Зелёный цвет */
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #28a745; /* Зелёная рамка */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.change-password-button:hover {
+    background-color: #28a745; /* Темно-зелёный при наведении */
+    color: white;
+}

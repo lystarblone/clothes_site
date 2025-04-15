@@ -30,7 +30,14 @@
         <button type="submit">Enter</button>
     </form>
     
-    <p>Don't have an account?</p>
-    <p><a href="{% url 'users:register' %}">Sign up</a></p>
+    <!-- Стилизованная кнопка "Forgot password?" -->
+    <p class="forgot-password">
+        <a href="{% url 'users:password_reset' %}" class="forgot-password-button">Forgot password?</a>
+    </p>
+    
+    <div class="signup-section">
+        <p>Don't have an account?</p>
+        <a href="{% url 'users:register' %}" class="signup-button">Sign up</a>
+    </div>
 </div>
 {% endblock %}
