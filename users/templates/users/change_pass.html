@@ -21,6 +21,9 @@
         {% endfor %}
 
         <button type="submit" class="save-button">Change password</button>
+        <p class="forgot-password">
+            <a href="{% url 'users:password_reset' %}" class="forgot-password-button">Forgot password?</a>
+        </p>
     </form>
 </div>
 {% endblock %}
