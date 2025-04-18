@@ -28,7 +28,7 @@
                 <div class="header-widgets">
                     <a href="#" class="search-icon"><img src="{% static 'main/img/index/search.png' %}" alt="Поиск" /></a>
                     <a href="#" class="wishlist-icon"><img src="{% static 'main/img/index/wishlist.png' %}" alt="Избранное" /></a>
-                    <a href="#" class="cart-icon"><img src="{% static 'main/img/index/cart.png' %}" alt="Корзина" /></a>
+                    <a href="{% url 'cart' %}" class="cart-icon"><img src="{% static 'main/img/index/cart.png' %}" alt="Корзина" /></a>
                     <a href="{% url 'users:profile' %}" class="profile-icon"><img src="{% static 'main/img/index/profile1.png' %}" alt="Профиль" /></a>
                 </div>
             </div>
