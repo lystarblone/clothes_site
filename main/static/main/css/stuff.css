@@ -156,20 +156,27 @@ input[type="radio"]:checked ~ .main-image-container > .main-image-item {
     text-decoration: underline;
 }
 
+/* Кнопка "Add to cart" */
 .add-to-cart-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
+    display: inline-block;
+    width: 25vw;
+    padding: 1vw 2vw;
+    margin-top: 2vw;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2vw;
+    font-weight: 550;
+    text-align: center;
+    text-decoration: none;
+    border: 0.2vw solid #000;
+    border-radius: 2vw;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background-color: transparent;
+    color: #000;
 }
 
 .like-btn {
@@ -203,4 +210,23 @@ input[type="radio"]:checked ~ .main-image-container > .main-image-item {
     font-size: 1.2vw;
     font-weight: bold;
     margin-bottom: .5vw;
+}
+
+/* Стиль для контейнера ссылок */
+.size-links {
+    display: flex;
+    gap: 1vw; /* Расстояние между ссылками */
+    margin-top: 1.2vw; /* Отступ сверху */
+}
+
+/* Стиль для ссылок */
+.size-link {
+    font-size: 1.1vw; /* Размер шрифта */
+    color: #000; /* Синий цвет */
+    text-decoration: underline; /* Подчеркивание */
+}
+
+/* Стиль для ссылок при наведении */
+.size-link:hover {
+    text-decoration: none;
 }

@@ -1,19 +1,86 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tags %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'main/css/new_stuff.css' %}">
+    <link rel="stylesheet" href="{% static 'cart/cart.css' %}">
 {% endblock styles %}
 
 {% block content %}
 <div class="cart-container">
-    {% if user.is_authenticated %}
-        <h1>Your Cart</h1>
-        <p>Here are the items in your cart:</p>
+    {% if cart_items %}
+        <div class="header-section">
+            <h1 id="big-title">Cart</h1>
+            <a href="{% url 'new_stuff' %}" class="continue-shopping-btn">&lt;&lt; Continue Shopping</a>
+        </div>
+        <div class="cart-section">
+            <div class="columns">
+                <!-- Блок с товарами -->
+                <div class="products-column">
+                    <div class="cart-table-container">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                {% for item in cart_items %}
+                                    <tr>
+                                        <td>
+                                            <div class="product-info">
+                                                {% if item.product.images.first %}
+                                                    <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}" class="cart-image">
+                                                {% else %}
+                                                    <img src="{% static 'main/images/no_image.jpg' %}" alt="No image" class="cart-image">
+                                                {% endif %}
+                                                <div class="text-details">
+                                                    {{ item.product.short_name }}
+                                                    <small>Size: {{ item.size }}</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>£{{ item.product.price }}</td>
+                                        <td>
+                                            <!-- Форма для изменения количества -->
+                                            <form method="POST" action="{% url 'cart:update_cart' item.id %}" class="quantity-form">
+                                                {% csrf_token %}
+                                                <div class="quantity-control">
+                                                    <button type="submit" name="action" value="decrease" class="quantity-btn">-</button>
+                                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="quantity-input" readonly>
+                                                    <button type="submit" name="action" value="increase" class="quantity-btn">+</button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        {% with total_price=item.product.price|multiply:item.quantity %}
+                                            <td>£{{ total_price|floatformat:2 }}</td>
+                                        {% endwith %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Блок "Your Order" -->
+                <div class="order-column">
+                    <div class="order-summary">
+                        <h2>Your Order</h2>
+                        <p>Subtotal: £{{ total_price }}</p>
+                        <a href="" class="checkout-btn">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% else %}
-        <h1>Please Log In</h1>
-        <p>To view your cart and proceed with the purchase, please <a href="{% url 'users:login' %}">log in</a>.</p>
+        <!-- Сообщение о пустой корзине -->
+        <div class="empty-cart">
+            <p>Your cart is empty.</p>
+        </div>
     {% endif %}
 </div>
 {% endblock %}

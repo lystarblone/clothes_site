@@ -1,0 +1,210 @@
+/* Стили для колонок */
+.columns {
+    display: flex;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.products-column {
+    flex: 1; /* Занимает оставшееся пространство */
+    max-width: 70%; /* Ширина блока с товарами */
+}
+
+.order-column {
+    width: 30%;
+    padding-left: 2vw; /* Отступ слева */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Остальные стили остаются неизменными */
+.cart-container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border-bottom: 1px solid #ccc;
+}
+
+#big-title {
+    font-size: 2.1rem;
+    margin: 2vw;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border: none;
+    font-weight: 530;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2vw;
+}
+
+.cart-table thead {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+}
+
+.cart-table th {
+    padding: 1vw;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #9C9C9C;
+    font-weight: 500;
+    border: none;
+}
+
+.cart-table td {
+    vertical-align: middle;
+    font-size: 1.4vw;
+    padding: 1vw;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th,
+.cart-table td {
+    text-align: center; /* Выравнивание по центру */
+}
+
+.cart-image {
+    width: 8vw;
+    height: 8vw;
+    object-fit: cover;
+    margin-right: 1vw;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.text-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity-form {
+    display: contents; /* Форма не создает дополнительных элементов */
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw; 
+}
+
+.quantity-btn {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 0.5vw 1vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+    border-radius: 0;
+}
+
+.quantity-input {
+    width: 6vw;
+    text-align: center;
+    font-size: 1.5vw;
+    margin: 0 0.5vw;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding: 0.3vw;
+}
+
+.order-summary h2 {
+    font-size: 1.5vw;
+    color: black;
+    margin-bottom: 2vw;
+    margin-top: 4.2vw;
+}
+
+.order-summary p {
+    font-size: 1.3vw;
+    margin-bottom: 1vw;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+.update-cart-btn,
+.checkout-btn {
+    display: inline-block;
+    padding: 1vw 2vw;
+    font-size: 1.8vw;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 1vw;
+}
+
+.checkout-btn {
+    display: inline-block;
+    width: 26vw;
+    padding: 1vw 2vw;
+    margin-top: 1vw;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2vw;
+    font-weight: 550;
+    text-align: center;
+    text-decoration: none;
+    border: 0.2vw solid #000;
+    border-radius: 2vw;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-bottom: 2vw;    
+}
+
+.checkout-btn:hover {
+    background-color: transparent;
+    color: #000;
+}
+
+.cart-container p {
+    text-align: center;
+    font-size: 2vw;
+    color: #666;
+}
+
+.empty-cart p {
+    font-size: 2vw;
+    color: #666;
+    margin: 0;
+    margin-top: 12vw;
+}
+
+.continue-shopping-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vw;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.4vw;
+    margin-bottom: 1vw;
+    margin-right: 3vw;
+}

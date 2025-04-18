@@ -39,7 +39,7 @@
             <p class="product-price gradient-text">Price: £{{ product.price }}</p>
 
             <!-- Форма для выбора размера и добавления в корзину -->
-            <form method="POST" action="" class="cart-form">
+            <form method="POST" action="{% url 'cart:add_to_cart' product.id %}" class="cart-form">
                 {% csrf_token %}
                 <div class="size gradient-text">Size:</div>
                 <div class="size-selector">
@@ -64,6 +64,14 @@
                         <span>XXL</span>
                     </label>
                 </div>
+            
+                <!-- Блок с двумя ссылками -->
+                <div class="size-links">
+                    <a href="#" class="size-link">Size Chart</a>
+                    <a href="{% url 'size_guide' %}" class="size-link">Size Guide</a>
+                </div>
+            
+                <!-- Кнопка "Add to Cart" -->
                 <button type="submit" class="add-to-cart-btn">Add to Cart</button>
             </form>
 
@@ -80,6 +88,8 @@
             </form>
         </div>
     </div>
+
+    <!-- Описание товара -->
     <h1 class="description-title">Description:</h1>
     <p class="product-description gray-text">{{ product.description }}</p>
 </div>
