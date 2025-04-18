@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     "main",
     "users",
 ]
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "clothes_shop.urls"
@@ -142,9 +148,10 @@ LOGIN_URL = "users:login"
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'users.authentication.EmailAuthBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-from clothes_shop.config import YANDEX_PASSWORD, YANDEX_EMAIL
+from clothes_shop.config import YANDEX_PASSWORD, YANDEX_EMAIL, GITGUB_KEY, GITHUB_SECRET_KEY
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -157,3 +164,10 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
+
+LOGIN_REDIRECT_URL = '/'
+SITE_ID = 1
+
+SOCIAL_AUTH_GITHUB_KEY = GITGUB_KEY
+SOCIAL_AUTH_GITHUB_SECRET = GITHUB_SECRET_KEY
+SOCIALACCOUNT_LOGIN_ON_GET = True

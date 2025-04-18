@@ -1,3 +1,5 @@
+<!-- users/templates/users/login.html -->
+
 {% extends "base.html" %}
 {% load static %}
 
@@ -6,21 +8,37 @@
 {% endblock styles %}
 
 {% block content %}
-
 <div class="registration-container">
-    <h1>Registration</h1>
+    <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}
-        {% for field in form %}
-            <div class="form-field">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-                {% if field.errors %}
-                    <div class="error">{{ field.errors }}</div>
-                {% endif %}
-            </div>
+        
+        {% if form.non_field_errors %}
+        <div class="error">
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}
+        
+        {% for f in form %}
+        <div class="form-field">
+            <label for="{{ f.id_for_label }}">{{ f.label }}</label>
+            {{ f }}
+            {% if f.errors %}
+            <div class="error">{{ f.errors }}</div>
+            {% endif %}
+        </div>
         {% endfor %}
-        <button type="submit">Register</button>
+        
+        <button type="submit">Enter</button>
     </form>
+    
+    <p class="forgot-password">
+        <a href="{% url 'users:password_reset' %}" class="forgot-password-button">Forgot password?</a>
+    </p>
+    
+    <div class="signup-section">
+        <p>Don't have an account?</p>
+        <a href="{% url 'users:register' %}" class="signup-button">Sign up</a>
+    </div>
 </div>
 {% endblock %}

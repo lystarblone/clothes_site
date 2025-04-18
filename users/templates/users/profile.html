@@ -22,7 +22,9 @@
 
         <button type="submit" class="save-button">Save changes</button>
     </form>
+    {% if not user.socialaccount_set.all %}
     <a href="{% url 'users:change_password' %}" class="change-password-button">Change Password</a>
+    {% endif %}
     {% if user.is_authenticated %}
     <form method="POST" action="{% url 'users:logout' %}" class="logout-form">
         {% csrf_token %}

@@ -122,3 +122,20 @@ button[type="submit"]:hover {
 .signup-button:hover {
     background-color: #0056b3;
 }
+
+/* Стили для блока с иконкой GitHub */
+.github-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.github-icon {
+    width: 48px;        /* Размер иконки */
+    height: 48px;       /* Размер иконки */
+    cursor: pointer;    /* Курсор указывает на кликабельность */
+    transition: transform 0.3s ease; /* Плавный эффект при наведении */
+}
+
+.github-icon:hover {
+    transform: scale(1.1); /* Увеличиваем иконку при наведении */
+}
