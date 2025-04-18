@@ -3,6 +3,7 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/new_stuff.css' %}">
 {% endblock styles %}
 
 {% block content %}
@@ -18,30 +19,8 @@
 <h1 id="big-title">New Stuff Arrivals:</h1>
 <div class="new-products-panel">
     <div class="product-container">
-        <div class="product-grid">
-            {% for stuff in latest_stuffs|slice:":5" %}
-                {% with first_image=stuff.images.first second_image=stuff.images.all.1 %}
-                    <div class="product-item {% if not second_image %}no-hover{% endif %}">
-                        <img src="{{ first_image.image.url }}" alt="{{ stuff.name }}" class="main-image">                        
-                        {% if second_image %}
-                            <img src="{{ second_image.image.url }}" alt="{{ stuff.name }}" class="hover-image">
-                        {% endif %}
-                    </div>
-                {% endwith %}
-            {% endfor %}
-        </div>
-        <div class="product-grid">
-            {% for stuff in latest_stuffs|slice:"5:10" %}
-                {% with first_image=stuff.images.first second_image=stuff.images.all.1 %}
-                    <div class="product-item {% if not second_image %}no-hover{% endif %}">
-                        <img src="{{ first_image.image.url }}" alt="{{ stuff.name }}" class="main-image">
-                        {% if second_image %}
-                            <img src="{{ second_image.image.url }}" alt="{{ stuff.name }}" class="hover-image">
-                        {% endif %}
-                    </div>
-                {% endwith %}
-            {% endfor %}
-        </div>    
+        <!-- Включение частичного шаблона product_grid -->
+        {% include "main/product_grid.html" with products=latest_stuffs %}
     </div>
 
     <a href="new_stuff" class="down-button">

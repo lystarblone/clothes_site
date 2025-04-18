@@ -143,82 +143,9 @@ body:not(:has(.scrolled)) .content {
 }
 
 /* Стили для панели новых товаров */
-.new-products-panel {
-    position: relative;
-    margin-top: 1vw;
-    background-color: #f9f9f9;
-    border-radius: 1vw;
-    box-shadow: 
-        -2px -2px 4px rgba(255, 255, 255, 0.8),
-        2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.product-container {
-    height: 42vw;
-    position: relative;
-    overflow: hidden;
-    border-radius: 1vw;
-    background: #eaeaea;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 60px;
-}
 
 .product-grid {
-    display: flex;
-    justify-content: flex-start;
-    gap: 2.45vw;
-    margin: 0 1vw;
-}
-
-.product-item {
-    margin: 1.5vw;
-    margin-right: 0.1vw;
-    position: relative;
-    flex: 0 0 calc(80% / 5);
-    max-width: calc(80% / 4);
-    text-align: center;
-    overflow: hidden;
-    border-radius: 0.5vw;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.product-item::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
-
-.product-item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.5vw;
-}
-
-.product-item .main-image {
-    z-index: 2;
-    transition: opacity 0.2s ease;
-}
-
-.product-item .hover-image {
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-}
-
-.product-item:not(.no-hover):hover .main-image {
-    opacity: 0;
-}
-
-.product-item:not(.no-hover):hover .hover-image {
-    opacity: 1;
-}
-
-.product-item.no-hover .main-image:hover {
-    transform: rotateY(180deg);
+    padding-bottom: 4vw;
 }
 
 /* Стили для кнопки-фотографии */
@@ -235,7 +162,7 @@ body:not(:has(.scrolled)) .content {
     transform: translateX(-50%);
     overflow: hidden;
     z-index: 10;
-    margin-bottom: -0.5vw;
+    margin-top: 1vw;
 }
 
 .down-button img {
