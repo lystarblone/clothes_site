@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth import get_user_model
+from main.models import User
 
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label="Login", widget=forms.TextInput(attrs={"class": "form-input"}))
@@ -40,8 +41,8 @@ class ProfileUserForm(forms.ModelForm):
     email = forms.CharField(disabled=True, label='E-mail', widget=forms.TextInput)
 
     class Meta:
-        model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name', 'address', 'postal_code']
         labels = {
             'first_name': 'First name',
             'last_name': 'Last name',
@@ -49,6 +50,8 @@ class ProfileUserForm(forms.ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-input'}),
             'last_name': forms.TextInput(attrs={'class': 'form-input'}),
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
+            'postal_code': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
 class UserPasswordChangeForm(PasswordChangeForm):

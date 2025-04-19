@@ -9,7 +9,7 @@
 <div class="profile-container">
     <h1 class="profile-title">Profile</h1>
 
-    <form method="post" class="profile-form">
+    <form method="post" enctype="multipart/form-data" class="profile-form">
         {% csrf_token %}
         <div class="form-error">{{ form.non_field_errors }}</div>
         {% for f in form %}

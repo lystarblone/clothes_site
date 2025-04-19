@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from main.models import Stuff
 from .models import CartItem
 from django.views.decorators.http import require_POST
+from django.contrib import messages
+
 
 @login_required(login_url='users:login')
 def cart(request):
@@ -59,3 +61,40 @@ def update_cart(request, item_id):
 
     # Перенаправляем на страницу корзины
     return redirect('cart:cart')
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Stuff, id=product_id)
+    selected_size = None
+    in_cart = False
+
+    if request.method == 'POST':
+        # Получаем выбранный размер из POST-запроса
+        selected_size = request.POST.get('size', None)
+        if 'add_to_cart' in request.POST:
+            if selected_size:
+                # Логика добавления товара в корзину
+                cart_item, created = CartItem.objects.get_or_create(
+                    user=request.user,
+                    product=product,
+                    size=selected_size,
+                    defaults={'quantity': 1}
+                )
+                if not created:
+                    cart_item.quantity += 1
+                    cart_item.save()
+                messages.success(request, f"Product '{product.name}' added to cart with size {selected_size}.")
+                in_cart = True
+            else:
+                messages.error(request, "Please select a size before adding to cart.")
+
+    # Если товар уже в корзине, проверяем его состояние
+    cart_item = CartItem.objects.filter(product=product, user=request.user).first()
+    if cart_item:
+        in_cart = True
+        selected_size = cart_item.size  # Устанавливаем размер из корзины
+
+    return render(request, 'product_detail.html', {
+        'product': product,
+        'selected_size': selected_size,  # Передаем выбранный размер в шаблон
+        'in_cart': in_cart,  # Передаем состояние корзины в шаблон
+    })

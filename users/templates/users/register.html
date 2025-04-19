@@ -32,13 +32,10 @@
         <button type="submit">Enter</button>
     </form>
     
-    <p class="forgot-password">
-        <a href="{% url 'users:password_reset' %}" class="forgot-password-button">Forgot password?</a>
-    </p>
-    
-    <div class="signup-section">
-        <p>Don't have an account?</p>
-        <a href="{% url 'users:register' %}" class="signup-button">Sign up</a>
+    <div class="github-login">
+        <a href="{% url 'github_login' %}">
+            <img src="{% static 'main/img/github.png' %}" alt="Login with GitHub" class="github-icon">
+        </a>
     </div>
 </div>
 {% endblock %}

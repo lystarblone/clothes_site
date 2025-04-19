@@ -69,26 +69,6 @@ def privacy_policy(request):
 def terms_of_use(request):
     return render(request, "main/client_resources/terms_of_use.html", {"title": "Terms of Use"})
 
-"""def auth(request):
-    if request.method == "POST":
-        form = AuthForm(request.POST)
-        if form.is_valid():
-            try:
-                Stuff.objects.create(**form.cleaned_data)
-                return redirect("main_page")
-            except:
-                form.add_error(None, "ошибкаааааа!")
-            form.save()
-            return redirect("main_page")
-    else:
-        form = AuthForm()
-
-    dataset = {
-        "title": "Auth",
-        "form": form,
-    }
-    return render(request, "main/auth.html", dataset)"""
-
 def stuff(request, slug):
     product = get_object_or_404(Stuff, slug=slug)
     title = f"Product: {product.short_name}"
@@ -132,4 +112,8 @@ def sportswear(request):
     return render(request, "main/sportswear.html", dataset)
 
 def page_not_found(request, exception):
-    return HttpResponseNotFound('Страница не найдена')
+    dataset = {
+        "title": "Page not found"
+    }
+    
+    return render(request, "main/page404.html", dataset, status=404)

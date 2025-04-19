@@ -44,53 +44,49 @@
                 <div class="size gradient-text">Size:</div>
                 <div class="size-selector">
                     <label for="size-S" class="size-btn">
-                        <input type="radio" id="size-S" name="size" value="S" checked>
+                        <input type="radio" id="size-S" name="size" value="S" {% if selected_size == "S" %}checked{% endif %}>
                         <span>S</span>
                     </label>
                     <label for="size-M" class="size-btn">
-                        <input type="radio" id="size-M" name="size" value="M">
+                        <input type="radio" id="size-M" name="size" value="M" {% if selected_size == "M" %}checked{% endif %}>
                         <span>M</span>
                     </label>
                     <label for="size-L" class="size-btn">
-                        <input type="radio" id="size-L" name="size" value="L">
+                        <input type="radio" id="size-L" name="size" value="L" {% if selected_size == "L" %}checked{% endif %}>
                         <span>L</span>
                     </label>
                     <label for="size-XL" class="size-btn">
-                        <input type="radio" id="size-XL" name="size" value="XL">
+                        <input type="radio" id="size-XL" name="size" value="XL" {% if selected_size == "XL" %}checked{% endif %}>
                         <span>XL</span>
                     </label>
                     <label for="size-XXL" class="size-btn">
-                        <input type="radio" id="size-XXL" name="size" value="XXL">
+                        <input type="radio" id="size-XXL" name="size" value="XXL" {% if selected_size == "XXL" %}checked{% endif %}>
                         <span>XXL</span>
                     </label>
                 </div>
             
-                <!-- Блок с двумя ссылками -->
-                <div class="size-links">
-                    <a href="#" class="size-link">Size Chart</a>
-                    <a href="{% url 'size_guide' %}" class="size-link">Size Guide</a>
-                </div>
-            
-                <!-- Кнопка "Add to Cart" -->
-                <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                {% if in_cart %}
+                    <form method="POST" action="{% url 'cart:update_cart' cart_item.id %}" class="quantity-form">
+                        {% csrf_token %}
+                        <div class="quantity-control">
+                            <button type="submit" name="action" value="decrease" class="quantity-btn">-</button>
+                            <input type="number" name="quantity" value="{{ cart_item.quantity }}" min="1" class="quantity-input" readonly>
+                            <button type="submit" name="action" value="increase" class="quantity-btn">+</button>
+                        </div>
+                    </form>
+                    <a href="{% url 'cart:cart' %}" class="go-to-cart-btn">Go to Cart</a>
+                {% else %}
+                    <!-- Кнопка "Add to Cart" -->
+                    <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                {% endif %}
             </form>
 
-            <!-- Форма для лайка -->
-            <form method="POST" action="" class="like-form">
-                {% csrf_token %}
-                <button type="submit" class="like-btn">
-                    {% if product.is_liked_by_user %}
-                        Unlike
-                    {% else %}
-                        Like
-                    {% endif %}
-                </button>
-            </form>
+            <!-- Описание товара -->
+            <div class="product-description-container">
+                <h1 class="description-title">Description:</h1>
+                <p class="product-description gray-text">{{ product.description }}</p>
+            </div>
         </div>
     </div>
-
-    <!-- Описание товара -->
-    <h1 class="description-title">Description:</h1>
-    <p class="product-description gray-text">{{ product.description }}</p>
 </div>
 {% endblock content %}

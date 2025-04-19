@@ -8,7 +8,11 @@ class User(models.Model):
     first_name = models.CharField(max_length=50, verbose_name='Name')
     last_name = models.CharField(max_length=50, verbose_name='Surname')
     phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Phone number')
-    adress = models.TextField(blank=True, null=True, verbose_name='Adress')
+    address = models.TextField(blank=True, null=True, verbose_name='Address')
+    postal_code = models.CharField(max_length=20, blank=True, null=True, verbose_name='Postal Code')
+
+    def __str__(self):
+        return self.email
 
 class Type(models.Model):
     name = models.CharField(max_length=50, verbose_name='Stuff type')

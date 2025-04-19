@@ -126,10 +126,7 @@
 .product-info {
     margin-top: 1vw;
     text-align: center;
-    background: linear-gradient(90deg, #063e69, #2f66b2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: black;
     padding: 0 1vw;
 }
 

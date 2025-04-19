@@ -6,8 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .forms import LoginUserForm, ProfileUserForm, RegisterUserForm, UserPasswordChangeForm
 from django.contrib.auth.forms import PasswordResetForm as BasePasswordResetForm
-
-User = get_user_model()
+from main.models import User
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
