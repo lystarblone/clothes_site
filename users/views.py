@@ -6,7 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .forms import LoginUserForm, ProfileUserForm, RegisterUserForm, UserPasswordChangeForm
 from django.contrib.auth.forms import PasswordResetForm as BasePasswordResetForm
-from main.models import User
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
@@ -25,7 +24,7 @@ class RegisterUser(CreateView):
         return reverse_lazy("users:login")
     
 class ProfileUser(LoginRequiredMixin, UpdateView):
-    model = User
+    model = get_user_model()
     form_class = ProfileUserForm
     template_name = 'users/profile.html'
     extra_context = {"title": "Profile"}
@@ -44,7 +43,7 @@ class UserPasswordChange(PasswordChangeView):
 class PasswordResetForm(BasePasswordResetForm):
     def clean_email(self):
         email = self.cleaned_data['email']
-        if not User.objects.filter(email=email).exists():
+        if not get_user_model().objects.filter(email=email).exists():
             raise forms.ValidationError("This email is not registered.")
         return email
 

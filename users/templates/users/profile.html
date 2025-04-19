@@ -13,11 +13,14 @@
         {% csrf_token %}
         <div class="form-error">{{ form.non_field_errors }}</div>
         {% for f in form %}
+        {% if f.name == "email" and user.socialaccount_set.all %}
+        {% else %}
         <div class="form-group">
             <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>
             {{ f }}
             <div class="form-error">{{ f.errors }}</div>
         </div>
+        {% endif %}
         {% endfor %}
 
         <button type="submit" class="save-button">Save changes</button>

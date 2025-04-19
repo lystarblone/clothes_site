@@ -30,21 +30,21 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost", "localhost:800"]
 # Application definition
 
 INSTALLED_APPS = [
-   "django.contrib.admin",
-   "django.contrib.auth",
-   "django.contrib.contenttypes",
-   "django.contrib.sessions",
-   "django.contrib.messages",
-   "django.contrib.staticfiles",
-   "django_extensions",
-   'django.contrib.sites',
-   'allauth',
-   'allauth.account',
-   'allauth.socialaccount',
-   'allauth.socialaccount.providers.github',
-   "main",
-   "users",
-   'cart',
+    "main",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_extensions",
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    "users",
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -173,3 +173,5 @@ SOCIAL_AUTH_GITHUB_SECRET = GITHUB_SECRET_KEY
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
 SECURE_SSL_REDIRECT = False
+
+AUTH_USER_MODEL = 'main.User'

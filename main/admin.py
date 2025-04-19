@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 # Register your models here.
-from .models import Stuff, StuffImage, Collection
+from .models import Stuff, StuffImage, Collection, Type
 
 @admin.register(Stuff)
 class StuffAdmin(admin.ModelAdmin):
@@ -53,3 +53,7 @@ class CollectionAdmin(admin.ModelAdmin):
                     collection_image.image.url
                 )
         return "-"
+    
+@admin.register(Type)
+class TypeAdmin(admin.ModelAdmin):
+    list_display = ["id", "name"]
