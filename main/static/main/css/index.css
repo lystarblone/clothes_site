@@ -133,7 +133,7 @@ body:not(:has(.scrolled)) .content {
 }
 
 #big-title {
-    font-size: 2.1rem;
+    font-size: 2.6vw;
     margin: 1rem 1.2rem;
     margin-bottom: 0.4vw;
     background: linear-gradient(90deg, #063e69, #2f66b2);
@@ -153,11 +153,11 @@ body:not(:has(.scrolled)) .content {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 4vw;
+    height: 4vw;
     cursor: pointer;
     position: absolute;
-    bottom: 20px;
+    bottom: 1.2vw;
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
@@ -199,9 +199,13 @@ body:not(:has(.scrolled)) .content {
 
 .banner-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.banner-item:nth-child(2) img {
+    object-position: top;
 }
 
 .banner-item:hover {

@@ -13,21 +13,24 @@ body {
     display: flex;
     margin: 0 auto;
     max-width: 95%;
-    padding-top: 7.5vw;
+    padding-top: 2vw;
     gap: 2vw;
+    margin-bottom: 1vw;
 }
 
 /* Стили для боковой панели */
 .sidebar {
-    width: 100%;
-    max-width: 14vw;
+    width: 14vw;
+    height: 28.2vw;
     background-color: #fff;
     border-radius: 1vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    padding: 1rem;
+    padding: 1vw;
     position: sticky;
     top: 7.5vw;
     align-self: flex-start;
+    padding-left: 1.5vw;
+    font-size: 1.3vw;
 }
 
 .sidebar ul {
@@ -37,7 +40,7 @@ body {
 }
 
 .sidebar ul li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.9vw;
 }
 
 .sidebar ul li a {
@@ -46,7 +49,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-size: 1.1rem;
+    font-size: 1.3vw;
     transition: opacity 0.3s ease;
 }
 
@@ -68,7 +71,7 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+    padding: 2.5vw;
     overflow: hidden;
     margin-bottom: 1rem;
 }
@@ -80,7 +83,7 @@ body {
 
 .about-title,
 .mission-title {
-    font-size: 1.8rem;
+    font-size: 2.1vw;
     background: linear-gradient(90deg, #063e69, #2f66b2);
     -webkit-background-clip: text;
     background-clip: text;
@@ -97,7 +100,7 @@ body {
 }
 
 .about-section p {
-    font-size: 1rem;
+    font-size: 1.12vw;
     color: #555;
     margin-bottom: 1rem;
 }
@@ -109,7 +112,7 @@ body {
 }
 
 .mission-list li {
-    font-size: 1rem;
+    font-size: 1.12vw;
     color: #555;
     margin-bottom: 0.8rem;
 }
