@@ -1,0 +1,91 @@
+/* Стили для контейнера подарочных сертификатов */
+.gift-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vw;
+    background-color: #f9f9f9;
+}
+
+.gift-card-form {
+    width: 40%;
+    padding: 2vw;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.gift-card-form h1 {
+    font-size: 2.5vw;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5vw;
+}
+
+.gift-card-form p {
+    font-size: 1.2vw;
+    color: #666666;
+    margin-bottom: 2vw;
+}
+
+/* Стили для формы */
+.gift-card-input-form .form-group {
+    margin-bottom: 2vw;
+    text-align: left;
+}
+
+.gift-card-input-form label {
+    font-size: 1.1vw;
+    font-weight: 600;
+    color: #333333;
+    display: block;
+    margin-bottom: 0.5vw;
+}
+
+.gift-card-input-form input[type="text"] {
+    width: 100%;
+    padding: 1vw;
+    font-size: 1.1vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.gift-card-input-form input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 1vw;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+    margin-top: 1.5vw;
+    text-align: center;
+}
+
+.error-message p {
+    font-size: 1vw;
+    color: #e74c3c;
+    font-weight: 500;
+}

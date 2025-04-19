@@ -1,0 +1,52 @@
+/* Стили для страницы подтверждения платежа */
+.confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    background-color: #f9f9f9;
+}
+
+.confirmation-message {
+    width: 40vw;
+    padding: 2vw;
+    background-color: white;
+    border-radius: 1.2vw;
+    box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmation-message h1 {
+    font-size: 2.5vw;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5vw;
+}
+
+.confirmation-message p {
+    font-size: 1.2vw;
+    color: #666666;
+    margin-bottom: 2vw;
+}
+
+.return-to-cart-btn {
+    display: inline-block;
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.8vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.thank-you-message {
+    font-size: 1.2vw;
+    color: #666666;
+    margin-bottom: 2vw;
+    font-weight: bold;
+}

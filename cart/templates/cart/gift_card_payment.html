@@ -1,0 +1,41 @@
+<!-- cart/templates/cart/gift_card_payment.html -->
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'cart/gift_card_payment.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="gift-card-container">
+    <div class="gift-card-form">
+        <h1>Gift Card Payment</h1>
+        <p>Please enter your 16-digit gift card code below:</p>
+
+        <!-- Форма для ввода кода -->
+        <form method="POST" class="gift-card-input-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="gift_card_code">Gift Card Code</label>
+                <input 
+                    type="text" 
+                    id="gift_card_code" 
+                    name="gift_card_code" 
+                    placeholder="Enter 16-digit code" 
+                    maxlength="16" 
+                    required
+                >
+            </div>
+            <button type="submit" class="submit-button">Apply Gift Card</button>
+        </form>
+
+        <!-- Сообщение об ошибке -->
+        {% if error_message %}
+            <div class="error-message">
+                <p>{{ error_message }}</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

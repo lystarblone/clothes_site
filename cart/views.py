@@ -4,6 +4,7 @@ from main.models import Stuff
 from .models import CartItem
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from decimal import Decimal
 
 
 @login_required(login_url='users:login')
@@ -114,13 +115,12 @@ def checkout(request):
         last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         country = request.POST.get('country')
-        region = request.POST.get('region')
         city = request.POST.get('city')
         address = request.POST.get('address')
         payment_method = request.POST.get('payment_method')
 
         # Проверяем, заполнены ли обязательные поля
-        if not all([first_name, last_name, email, country, region, city, address]):
+        if not all([first_name, last_name, email, country, city, address]):
             messages.error(request, "Please fill in all required fields.")
             return redirect('cart:checkout')
 
@@ -129,7 +129,7 @@ def checkout(request):
             messages.error(request, "Please select a payment method.")
             return redirect('cart:checkout')
 
-        # Если все проверки пройдены, переадресуем на страницу оплаты
+        # Переадресация на соответствующую страницу оплаты
         if payment_method == 'gift_cards':
             return redirect('cart:gift_card_payment')  # Страница оплаты сертификатами
         elif payment_method == 'cryptocurrency':
@@ -146,3 +146,59 @@ def checkout(request):
     }
 
     return render(request, 'cart/checkout.html', context)
+
+@login_required(login_url='users:login')
+def gift_card_payment(request):
+    error_message = None  # Переменная для хранения ошибки
+
+    if request.method == 'POST':
+        # Получаем введенный код сертификата
+        gift_card_code = request.POST.get('gift_card_code')
+
+        # Проверяем, что код состоит из 16 символов
+        if not gift_card_code or len(gift_card_code) != 16:
+            error_message = "Invalid gift card code. Please enter a 16-digit code."
+            return render(request, 'cart/gift_card_payment.html', {'error_message': error_message})
+
+        # Пример проверки (замените на реальную логику)
+        if gift_card_code != "VALIDCODE12345678":
+            error_message = "A gift card with this code does not exist."
+            return render(request, 'cart/gift_card_payment.html', {'error_message': error_message})
+
+        # Если код верный, переадресуем на страницу подтверждения заказа
+        return redirect('cart:order_confirmation')
+
+    # Если метод GET, просто отображаем страницу
+    return render(request, 'cart/gift_card_payment.html', {'error_message': error_message})
+
+@login_required(login_url='users:login')
+def cryptocurrency_payment(request):
+    # Получаем все товары из корзины текущего пользователя
+    cart_items = CartItem.objects.filter(user=request.user).order_by('-id')
+
+    # Рассчитываем общую стоимость заказа (total_price)
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
+
+    # Преобразуем коэффициент 1.2 в Decimal
+    eth_coefficient = Decimal('1.293475457893678')
+
+    # Рассчитываем сумму в ETH (умножаем на коэффициент 1.2)
+    total_price_in_eth = round(total_price * eth_coefficient, 8)
+
+    if request.method == 'POST':
+        # Очищаем корзину пользователя
+        cart_items.delete()
+
+        # Переадресуем на страницу подтверждения платежа
+        return redirect('cart:payment_confirmation')
+
+    context = {
+        'total_price_in_eth': total_price_in_eth,
+    }
+
+    return render(request, 'cart/cryptocurrency_payment.html', context)
+
+
+@login_required(login_url='users:login')
+def payment_confirmation(request):
+    return render(request, 'cart/payment_confirmation.html')

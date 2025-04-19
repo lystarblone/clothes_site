@@ -1,0 +1,121 @@
+/* Контейнер для страницы оплаты криптовалютой */
+.crypto-payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+.crypto-payment-form {
+    width: 40vw; /* Ширина формы теперь зависит от ширины экрана */
+    padding: 2vw;
+    background-color: white;
+    border-radius: 1.2vw; /* Радиус скругления в vw */
+    box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.1); /* Тень адаптирована под vw */
+    text-align: center;
+}
+
+.crypto-payment-form h1 {
+    font-size: 2.5vw; /* Размер заголовка */
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5vw; /* Отступ снизу */
+}
+
+.crypto-payment-form p {
+    font-size: 1.2vw; /* Размер текста */
+    color: #666666;
+    margin-bottom: 2vw; /* Отступ снизу */
+}
+
+/* QR-код */
+.qr-code-container {
+    margin-bottom: 2vw; /* Отступ снизу */
+}
+
+.qr-code {
+    width: 15vw; /* Ширина QR-кода */
+    height: 15vw; /* Высота QR-кода */
+    object-fit: cover;
+    border: 0.1vw solid #e0e0e0; /* Граница адаптирована под vw */
+    border-radius: 0.8vw; /* Радиус скругления в vw */
+}
+
+/* Адрес кошелька */
+.wallet-address {
+    margin-bottom: 1.5vw; /* Отступ снизу */
+    text-align: center;
+}
+
+.wallet-address label {
+    font-size: 1.1vw; /* Размер текста */
+    font-weight: 600;
+    color: #333333;
+    display: block;
+    margin-bottom: 0.5vw; /* Отступ снизу */
+}
+
+.address-text {
+    font-size: 1.1vw; /* Размер текста */
+    font-family: monospace; /* Моноширинный шрифт */
+    background-color: #fafafa;
+    padding: 1vw; /* Внутренние отступы */
+    border: 0.1vw solid #e0e0e0; /* Граница адаптирована под vw */
+    border-radius: 0.8vw; /* Радиус скругления в vw */
+    word-break: break-all; /* Разбиваем длинный текст на несколько строк */
+}
+
+.instruction {
+    font-size: 1vw; /* Размер текста */
+    color: #666666;
+    margin-top: 0.5vw; /* Отступ сверху */
+}
+
+/* Сумма для оплаты */
+.payment-amount {
+    margin-bottom: 2vw; /* Отступ снизу */
+    text-align: center;
+}
+
+.payment-amount label {
+    font-size: 1.1vw; /* Размер текста */
+    font-weight: 600;
+    color: #333333;
+    display: block;
+    margin-bottom: 0.5vw; /* Отступ снизу */
+}
+
+.amount-text {
+    font-size: 1.1vw; /* Размер текста */
+    font-family: monospace; /* Моноширинный шрифт */
+    background-color: #fafafa;
+    padding: 1vw; /* Внутренние отступы */
+    border: 0.1vw solid #e0e0e0; /* Граница адаптирована под vw */
+    border-radius: 0.8vw; /* Радиус скругления в vw */
+}
+
+/* Кнопка подтверждения */
+.confirmation-form {
+    text-align: center;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 1vw 2vw; /* Внутренние отступы */
+    font-size: 1.2vw; /* Размер текста */
+    font-weight: 600;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 0.8vw; /* Радиус скругления в vw */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.submit-button:hover {
+    background-color: #218838; /* Цвет при наведении */
+}

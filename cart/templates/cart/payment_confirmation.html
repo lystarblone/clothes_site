@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'cart/payment_confirmation.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="confirmation-container">
+    <div class="confirmation-message">
+        <h1>Payment Confirmation</h1>
+        <p>Your payment is currently being processed. Once the payment is confirmed, a tracking number will be sent to your email.</p>
+        <p class="thank-you-message">Thank you for your purchase!</p>
+    </div>
+</div>
+{% endblock %}
