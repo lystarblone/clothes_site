@@ -13,7 +13,6 @@
         <!-- Левая часть формы -->
         <div class="form-section">
             <h1>Payment and Shipping</h1>
-            <!-- Personal Information -->
             <div class="form-group">
                 <label for="first_name">First Name</label>
                 <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}" required>
@@ -27,7 +26,6 @@
                 <input type="email" id="email" name="email" value="{{ user.email }}" required>
             </div>
 
-            <!-- Shipping Address -->
             <div class="form-group">
                 <label for="country">Country</label>
                 <select id="country" name="country" required>
@@ -94,13 +92,11 @@
                 <p>Total Amount: <span class="price-value">£{{ total_price }}</span></p>
             </div>
 
-            <!-- Delivery Information -->
             <div class="delivery-info">
                 <h3>Shipping Method:</h3>
                 <p>Please enter your address to view shipping options.</p>
             </div>
 
-            <!-- Payment Information -->
             <div class="payment-info">
                 <h3>Payment:</h3>
                 <div class="payment-methods">
@@ -116,7 +112,6 @@
                     <p class="unavailable-message">Credit/Debit Cards and Digital Wallets</p>
                     <p class="unavailable-message">Are Temporarily Unavailable!</p>
                 </div>
-                <!-- Кнопка отправки формы -->
                 <button type="submit" class="add-to-cart-btn">Place Order</button>
             </div>
         </div>

@@ -1,4 +1,3 @@
-/* Checkout container */
 .checkout-container {
     display: flex;
     gap: 2vw;
@@ -11,21 +10,18 @@
     max-width: 90vw;
 }
 
-/* Form section */
 .form-section {
     width: 55%;
 }
 
-/* Order summary section */
 .order-summary-section {
-    width: 45%; /* Увеличиваем ширину правой части */
+    width: 45%;
     padding: 1.5vw;
     background-color: #f9f9f9;
     border-radius: 8px;
 }
 
-/* Title */
-h1 {
+h1, h2 {
     text-align: center;
     font-size: 2.2vw;
     font-weight: 700;
@@ -36,12 +32,10 @@ h1 {
     margin-bottom: 2vw;
 }
 
-/* Form group */
 .form-group {
     margin-bottom: 1.5vw;
 }
 
-/* Labels */
 label {
     display: block;
     font-size: 1vw;
@@ -50,7 +44,6 @@ label {
     margin-bottom: 0.8vw;
 }
 
-/* Input fields */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -73,14 +66,7 @@ select:focus {
     outline: none;
 }
 
-/* Error messages */
-.form-error {
-    font-size: 1vw;
-    color: #e74c3c;
-}
-
-/* Submit button */
-.submit-button {
+.submit-button, .add-to-cart-btn {
     display: block;
     width: 100%;
     padding: 1vw;
@@ -92,13 +78,13 @@ select:focus {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 2vw;
 }
 
-.submit-button:hover {
+.submit-button:hover, .add-to-cart-btn:hover {
     background-color: #0056b3;
 }
 
-/* Order items */
 .order-items {
     margin-top: 2vw;
 }
@@ -108,14 +94,19 @@ select:focus {
     align-items: center;
     gap: 1vw;
     margin-bottom: 1.2vw;
+    padding-bottom: 1vw;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.order-item:last-child {
+    border-bottom: none;
 }
 
 .product-image {
     width: 8vw;
     height: 8vw;
-    object-fit: cover; /* Обрезка изображений для сохранения пропорций */
+    object-fit: cover;
     border-radius: 0.5vw;
-    margin-right: 1vw;
 }
 
 .item-details p:first-child {
@@ -169,7 +160,6 @@ select:focus {
     font-size: 1vw;
 }
 
-/* Payment methods */
 .payment-methods label {
     display: block;
     margin-bottom: 0;
@@ -177,7 +167,6 @@ select:focus {
     color: #333333;
 }
 
-/* Unavailable message */
 .unavailable-message {
     color: red;
     font-size: 0.8vw;
@@ -185,52 +174,16 @@ select:focus {
     margin-bottom: 0;
 }
 
-.delivery-info h3 {
-    background: linear-gradient(90deg, #063e69, #2f66b2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 1vw;
-}
-
-
-.payment-info h3 {
+.delivery-info h3, .payment-info h3 {
     background: linear-gradient(90deg, #063e69, #2f66b2);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     margin-top: 1.5vw;
     margin-bottom: 1vw;
+    font-size: 1.4vw;
 }
 
-.payment-methods label {
-    display: block;
-    margin-bottom: 1vw;
-    font-size: 1vw;
-    color: #333333;
-}
-
-/* Кнопка в правом блоке */
-.add-to-cart-btn {
-    display: block;
-    width: 100%;
-    height: 4vw;
-    padding: 1vw 2vw;
-    margin-top: 2vw;
-    background-color: #000;
-    color: #fff;
-    font-size: 1.2vw;
-    font-weight: 550;
-    text-align: center;
-    text-decoration: none;
-    border: 0.2vw solid #000;
-    border-radius: 2vw;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-
-}
-
-.add-to-cart-btn:hover {
-    background-color: transparent;
-    color: #000;
+.delivery-info p {
+    font-size: 1.1vw;
 }

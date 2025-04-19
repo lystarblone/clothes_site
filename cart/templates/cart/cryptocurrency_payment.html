@@ -1,5 +1,3 @@
-<!-- cart/templates/cart/cryptocurrency_payment.html -->
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -13,25 +11,21 @@
         <h1>Cryptocurrency Payment</h1>
         <p>Please complete your payment using the details below:</p>
 
-        <!-- QR-код -->
         <div class="qr-code-container">
             <img src="{% static 'main/img/crypto_qr.jpeg' %}" alt="QR Code" class="qr-code">
         </div>
 
-        <!-- Адрес кошелька -->
         <div class="wallet-address">
             <label>Wallet Address (Ethereum ERC20):</label>
             <p class="address-text">0x1234567890abcdef1234567890abcdef12345678</p>
             <p class="instruction">Copy this address manually and paste it into your wallet.</p>
         </div>
 
-        <!-- Сумма для оплаты -->
         <div class="payment-amount">
             <label>Amount to Pay (ETH):</label>
             <p class="amount-text">{{ total_price_in_eth }}</p>
         </div>
 
-        <!-- Кнопка подтверждения -->
         <form method="POST" class="confirmation-form">
             {% csrf_token %}
             <button type="submit" class="submit-button">Confirm Payment</button>
