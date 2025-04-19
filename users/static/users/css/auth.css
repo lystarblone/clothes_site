@@ -3,13 +3,13 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    margin-top: 7vw;
 }
 
 .registration-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 30vw;
+    margin: 2vw auto;
+    padding: 2vw;
+    padding-bottom: 1vw;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -18,16 +18,18 @@ body {
 h1 {
     text-align: center;
     color: #333333;
-    margin-bottom: 20px;
+    margin-bottom: 1vw;
+    font-size: 2.2vw;
 }
 
 .form-field {
-    margin-bottom: 15px;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 1vw;
     color: #555555;
     font-weight: bold;
 }
@@ -36,10 +38,10 @@ input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 0.9vw;
     border: 1px solid #cccccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 1.2vw;
     transition: border-color 0.3s ease;
 }
 
@@ -49,38 +51,39 @@ input[type="password"]:focus {
     border-color: #007bff;
     outline: none;
 }
-
+ 
 .error {
     color: #e74c3c;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 1vw;
+    margin-top: 0.6;
 }
-
+ 
 button[type="submit"] {
     width: 100%;
-    padding: 10px;
+    padding: 0.9vw;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 0.7vw;
 }
-
+ 
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
-
+ 
 /* Кнопка "Forgot password?" */
 .forgot-password-button {
     display: inline-block;
     width: 100%;
-    padding: 10px;
-    margin-top: 15px;
+    padding: 0.7vw;
+    margin-top: 1vw;
     background-color: transparent;
     color: #007bff;
-    font-size: 14px;
+    font-size: 1vw;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
@@ -89,17 +92,17 @@ button[type="submit"]:hover {
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+ 
 /* Блок "Don't have an account?" */
 .signup-section {
     text-align: center;
-    margin-top: 20px; /* Отступ сверху */
+    margin-top: 1.4vw; /* Отступ сверху */
 }
 
 .signup-section p {
-    font-size: 14px;
+    font-size: 1vw;
     color: #555555;
-    margin-bottom: 10px; /* Отступ между текстом и кнопкой */
+    margin-bottom: 1.3vw; /* Отступ между текстом и кнопкой */
 }
 
 .forgot-password-button:hover {
@@ -108,34 +111,34 @@ button[type="submit"]:hover {
 
 .signup-button {
     width: 100%;
-    padding: 10px;
+    padding: 1vw;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
 }
 
-.signup-button:hover {
+ .signup-button:hover {
     background-color: #0056b3;
 }
 
 /* Стили для блока с иконкой GitHub */
 .github-login {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.3vw;
 }
 
 .github-icon {
-    width: 48px;        /* Размер иконки */
-    height: 48px;       /* Размер иконки */
-    cursor: pointer;    /* Курсор указывает на кликабельность */
-    transition: transform 0.3s ease; /* Плавный эффект при наведении */
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .github-icon:hover {
-    transform: scale(1.1); /* Увеличиваем иконку при наведении */
+    transform: scale(1.05);
 }

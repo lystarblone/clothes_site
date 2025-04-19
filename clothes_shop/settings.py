@@ -24,59 +24,58 @@ SECRET_KEY = "django-insecure-4tnw9q$#rf%pp0whkza0z$ogf49ti)$u2ju)yc2g@1^js+gd0u
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "localhost:800"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "django_extensions",
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
-    "main",
-    "users",
-    'cart',
+   "django.contrib.admin",
+   "django.contrib.auth",
+   "django.contrib.contenttypes",
+   "django.contrib.sessions",
+   "django.contrib.messages",
+   "django.contrib.staticfiles",
+   "django_extensions",
+   'django.contrib.sites',
+   'allauth',
+   'allauth.account',
+   'allauth.socialaccount',
+   'allauth.socialaccount.providers.github',
+   "main",
+   "users",
+   'cart',
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "allauth.account.middleware.AccountMiddleware",
+   "django.middleware.security.SecurityMiddleware",
+   "django.contrib.sessions.middleware.SessionMiddleware",
+   "django.middleware.common.CommonMiddleware",
+   "django.middleware.csrf.CsrfViewMiddleware",
+   "django.contrib.auth.middleware.AuthenticationMiddleware",
+   "django.contrib.messages.middleware.MessageMiddleware",
+   "django.middleware.clickjacking.XFrameOptionsMiddleware",
+   "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "clothes_shop.urls"
 
 TEMPLATES = [
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            BASE_DIR / "templates"
-        ],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-            ],
-        },
-    },
+   {
+       "BACKEND": "django.template.backends.django.DjangoTemplates",
+       "DIRS": [
+           BASE_DIR / "templates"
+       ],
+       "APP_DIRS": True,
+       "OPTIONS": {
+           "context_processors": [
+               "django.template.context_processors.debug",
+               "django.template.context_processors.request",
+               "django.contrib.auth.context_processors.auth",
+               "django.contrib.messages.context_processors.messages",
+           ],
+       },
+   },
 ]
 
 WSGI_APPLICATION = "clothes_shop.wsgi.application"
@@ -86,10 +85,10 @@ WSGI_APPLICATION = "clothes_shop.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+   "default": {
+       "ENGINE": "django.db.backends.sqlite3",
+       "NAME": BASE_DIR / "db.sqlite3",
+   }
 }
 
 
@@ -97,18 +96,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+   {
+       "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+   },
+   {
+       "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+   },
+   {
+       "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+   },
+   {
+       "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+   },
 ]
 
 
@@ -130,7 +129,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "main/static",
+   BASE_DIR / "main/static",
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -147,9 +146,9 @@ LOGOUT_REDIRECT_URL = "main_page"
 LOGIN_URL = "users:login"
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'users.authentication.EmailAuthBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+   'django.contrib.auth.backends.ModelBackend',
+   'users.authentication.EmailAuthBackend',
+   'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 from clothes_shop.config import YANDEX_PASSWORD, YANDEX_EMAIL, GITGUB_KEY, GITHUB_SECRET_KEY
@@ -172,3 +171,5 @@ SITE_ID = 1
 SOCIAL_AUTH_GITHUB_KEY = GITGUB_KEY
 SOCIAL_AUTH_GITHUB_SECRET = GITHUB_SECRET_KEY
 SOCIALACCOUNT_LOGIN_ON_GET = True
+
+SECURE_SSL_REDIRECT = False

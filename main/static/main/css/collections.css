@@ -31,6 +31,10 @@
 
 /* Добавляем отступ над заголовком Collection Data */
 h1.gradient-text {
-    margin-top: 2rem; /* Устанавливаем верхний отступ */
+    margin-top: 2rem;
     font-size: 2.5vw;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
