@@ -1,0 +1,236 @@
+/* Checkout container */
+.checkout-container {
+    display: flex;
+    gap: 2vw;
+    margin: 2vw auto;
+    padding: 2vw;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    max-width: 90vw;
+}
+
+/* Form section */
+.form-section {
+    width: 55%;
+}
+
+/* Order summary section */
+.order-summary-section {
+    width: 45%; /* Увеличиваем ширину правой части */
+    padding: 1.5vw;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    font-size: 2.2vw;
+    font-weight: 700;
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2vw;
+}
+
+/* Form group */
+.form-group {
+    margin-bottom: 1.5vw;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 1vw;
+    font-weight: 600;
+    color: #555555;
+    margin-bottom: 0.8vw;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 1vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1vw;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fafafa;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Error messages */
+.form-error {
+    font-size: 1vw;
+    color: #e74c3c;
+}
+
+/* Submit button */
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 1vw;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1vw;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Order items */
+.order-items {
+    margin-top: 2vw;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-bottom: 1.2vw;
+}
+
+.product-image {
+    width: 8vw;
+    height: 8vw;
+    object-fit: cover; /* Обрезка изображений для сохранения пропорций */
+    border-radius: 0.5vw;
+    margin-right: 1vw;
+}
+
+.item-details p:first-child {
+    font-weight: 600;
+}
+
+.item-details p:last-child {
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 550;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details p {
+    margin: 0;
+    font-size: 0.9vw;
+}
+
+.item-details p:not(:last-child) {
+    margin-bottom: 0.3vw;
+}
+
+.item-details p:nth-child(4) {
+    margin-bottom: 0.8vw;
+}
+
+.total-price {
+    margin-top: 2vw;
+    padding: 1vw;
+    background-color: #f0f8ff;
+    border-left: 0.5vw solid #007bff;
+    border-radius: 0.5vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: #333333;
+    box-shadow: 0 0.4vw 0.6vw rgba(0, 0, 0, 0.1);
+    margin-bottom: 2vw;
+}
+
+.price-value {
+    font-weight: 500;
+}
+
+.payment-info p {
+    color: red;
+    font-size: 1vw;
+}
+
+/* Payment methods */
+.payment-methods label {
+    display: block;
+    margin-bottom: 0;
+    font-size: 1vw;
+    color: #333333;
+}
+
+/* Unavailable message */
+.unavailable-message {
+    color: red;
+    font-size: 0.8vw;
+    margin-left: 0.2vw;
+    margin-bottom: 0;
+}
+
+.delivery-info h3 {
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1vw;
+}
+
+
+.payment-info h3 {
+    background: linear-gradient(90deg, #063e69, #2f66b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-top: 1.5vw;
+    margin-bottom: 1vw;
+}
+
+.payment-methods label {
+    display: block;
+    margin-bottom: 1vw;
+    font-size: 1vw;
+    color: #333333;
+}
+
+/* Кнопка в правом блоке */
+.add-to-cart-btn {
+    display: block;
+    width: 100%;
+    height: 4vw;
+    padding: 1vw 2vw;
+    margin-top: 2vw;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2vw;
+    font-weight: 550;
+    text-align: center;
+    text-decoration: none;
+    border: 0.2vw solid #000;
+    border-radius: 2vw;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+}
+
+.add-to-cart-btn:hover {
+    background-color: transparent;
+    color: #000;
+}

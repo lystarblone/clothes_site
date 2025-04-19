@@ -71,7 +71,7 @@
                     <div class="order-summary">
                         <h2>Your Order</h2>
                         <p>Subtotal: £{{ total_price }}</p>
-                        <a href="" class="checkout-btn">Proceed to Checkout</a>
+                        <a href="{% url 'cart:checkout' %}" class="checkout-btn">Proceed to Checkout</a>
                     </div>
                 </div>
             </div>

@@ -98,3 +98,51 @@ def product_detail(request, product_id):
         'selected_size': selected_size,  # Передаем выбранный размер в шаблон
         'in_cart': in_cart,  # Передаем состояние корзины в шаблон
     })
+
+
+# cart/views.py
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import CartItem
+
+@login_required(login_url='users:login')
+def checkout(request):
+    if request.method == 'POST':
+        # Получаем данные из формы
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        country = request.POST.get('country')
+        region = request.POST.get('region')
+        city = request.POST.get('city')
+        address = request.POST.get('address')
+        payment_method = request.POST.get('payment_method')
+
+        # Проверяем, заполнены ли обязательные поля
+        if not all([first_name, last_name, email, country, region, city, address]):
+            messages.error(request, "Please fill in all required fields.")
+            return redirect('cart:checkout')
+
+        # Проверяем, выбран ли метод оплаты
+        if not payment_method:
+            messages.error(request, "Please select a payment method.")
+            return redirect('cart:checkout')
+
+        # Если все проверки пройдены, переадресуем на страницу оплаты
+        if payment_method == 'gift_cards':
+            return redirect('cart:gift_card_payment')  # Страница оплаты сертификатами
+        elif payment_method == 'cryptocurrency':
+            return redirect('cart:cryptocurrency_payment')  # Страница оплаты криптовалютой
+
+    # Если метод GET, отображаем страницу оформления заказа
+    cart_items = CartItem.objects.filter(user=request.user).order_by('-id')
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
+
+    context = {
+        'cart_items': cart_items,
+        'total_price': total_price,
+        'user': request.user,
+    }
+
+    return render(request, 'cart/checkout.html', context)
