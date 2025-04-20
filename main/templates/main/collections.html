@@ -10,14 +10,16 @@
         <div class="collection-list">
             {% for data in collections %}
                 <div class="collection-card">
-                    <!-- Ссылка на страницу товаров коллекции -->
-                    <a href="{% url 'collection_detail' slug=data.slug %}" class="collection-image-link">
+                    <!-- Изображение коллекции -->
+                    <div class="image-container">
                         {% if data.image %}
-                            <img src="{{ data.image.url }}" alt="{{ data.name }}" class="collection-image">
+                            <a href="{% url 'collection_detail' slug=data.slug %}" class="collection-image-link">
+                                <img src="{{ data.image.url }}" alt="{{ data.name }}" class="collection-image">
+                            </a>
                         {% else %}
                             <div class="placeholder-image"></div>
                         {% endif %}
-                    </a>
+                    </div>
 
                     <!-- Текстовый контент (не кликабельный) -->
                     <div class="content">
