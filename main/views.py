@@ -126,6 +126,17 @@ def search(request):
 
     return render(request, 'main/search_results.html', {'results': results, 'query': query})
 
+def collection_detail(request, slug):
+    collection = get_object_or_404(Collection, slug=slug)
+    products = Stuff.objects.filter(collection=collection)
+
+    dataset = {
+        'products': products,
+        'title': collection.name
+    }
+    
+    return render(request, 'main/collection_detail.html', dataset)
+
 def page_not_found(request, exception):
     dataset = {
         "title": "Page not found"

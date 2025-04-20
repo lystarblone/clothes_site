@@ -21,4 +21,5 @@ urlpatterns = [
     path("client_resources/terms_of_use/", views.terms_of_use, name="terms_of_use"),
     path("new_stuff/<slug:slug>/", views.stuff, name="product_detail"),
     path('search/', views.search, name='search'),
+    path('collections/<slug:slug>/', views.collection_detail, name='collection_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

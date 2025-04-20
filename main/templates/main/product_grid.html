@@ -1,4 +1,3 @@
-<!-- templates/main/product_grid.html -->
 <div class="product-grid">
     {% for product in products %}
         <div class="product-item">
@@ -16,6 +15,8 @@
                             </a>
                         {% endif %}
                     {% endwith %}
+                {% else %}
+                    <div class="placeholder-image">No Image</div>
                 {% endif %}
             </div>
 
@@ -25,6 +26,6 @@
             </div>
         </div>
     {% empty %}
-        <p>No new arrivals available.</p>
+        <p class="no-products-message">No products available in this collection.</p>
     {% endfor %}
 </div>

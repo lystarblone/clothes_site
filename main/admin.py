@@ -12,7 +12,7 @@ class StuffAdmin(admin.ModelAdmin):
     ordering = ["-time_create"]
     prepopulated_fields = {"slug": ("name",)}
     date_hierarchy = "time_create"
-    list_editable = ("type", )
+    list_editable = ("type",)
     list_display_links = ["name"]
 
     @admin.display(description="Short Description")
