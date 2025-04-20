@@ -39,8 +39,8 @@
                                                     <img src="{% static 'main/images/no_image.jpg' %}" alt="No image" class="cart-image">
                                                 {% endif %}
                                                 <div class="text-details">
-                                                    {{ item.product.short_name }}
-                                                    <small>Size: {{ item.size }}</small>
+                                                    <div class="product-name">{{ item.product.short_name }}</div>
+                                                    <div class="product-size">Size: {{ item.size }}</div>
                                                 </div>
                                             </div>
                                         </td>

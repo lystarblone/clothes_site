@@ -85,8 +85,26 @@
 
 .product-info {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1vw;
+}
+
+.text-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+.product-name {
+    font-size: 1.4vw;
+    color: #333;
+    margin: 0;
+}
+
+.product-size {
+    font-size: 1.2vw;
+    color: #666;
+    margin: 0;
 }
 
 .quantity-control {

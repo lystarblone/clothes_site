@@ -10,13 +10,29 @@
 <div class="product-details">
     <!-- Блок с миниатюрами, большим изображением и информацией о товаре -->
     <div class="product-gallery">
-        <!-- Боковая панель с миниатюрами -->
+        <!-- Блок миниатюр слева -->
         <div class="thumbnail-container">
             {% for image in product.images.all %}
-                <label for="image-{{ forloop.counter }}" class="thumbnail-label">
-                    <img src="{{ image.image.url }}" alt="{{ product.name }}" class="thumbnail-image">
+                <label for="thumbnail-{{ forloop.counter }}" class="thumbnail-label">
+                    <img 
+                        src="{{ image.image.url }}" 
+                        alt="{{ product.name }}" 
+                        class="thumbnail-image"
+                        {% if forloop.first %}style="border: 2px solid #007bff;"{% endif %}
+                    >
                 </label>
-                <input type="radio" id="image-{{ forloop.counter }}" name="product-image" class="hidden-radio"{% if forloop.first %} checked{% endif %}>
+                <input 
+                    type="radio" 
+                    id="thumbnail-{{ forloop.counter }}" 
+                    name="thumbnail-selector" 
+                    class="hidden-radio"
+                    {% if forloop.first %}checked{% endif %}
+                    onclick="document.getElementById('main-image-{{ forloop.counter }}').style.display = 'block'; 
+                             Array.from(document.querySelectorAll('.product-image')).forEach(img => img.style.display = 'none');
+                             document.getElementById('main-image-{{ forloop.counter }}').style.display = 'block';
+                             Array.from(document.querySelectorAll('.thumbnail-image')).forEach(img => img.style.border = 'none');
+                             this.previousElementSibling.querySelector('img').style.border = '2px solid #007bff';"
+                >
             {% empty %}
                 <p>No images available.</p>
             {% endfor %}
@@ -25,9 +41,13 @@
         <!-- Центральная панель с большим изображением -->
         <div class="main-image-container">
             {% for image in product.images.all %}
-                <div class="main-image-item" id="main-image-{{ forloop.counter }}">
-                    <img src="{{ image.image.url }}" alt="{{ product.name }}" class="product-image">
-                </div>
+                <img 
+                    src="{{ image.image.url }}" 
+                    alt="{{ product.name }}" 
+                    class="product-image"
+                    {% if forloop.first %}style="display: block;"{% else %}style="display: none;"{% endif %}
+                    id="main-image-{{ forloop.counter }}"
+                >
             {% empty %}
                 <p>No images available.</p>
             {% endfor %}
@@ -64,7 +84,13 @@
                         <span>XXL</span>
                     </label>
                 </div>
-            
+
+                <!-- Ссылки на Size Guide и Size Table -->
+                <div class="size-links">
+                    <a href="#" class="size-link">Size Guide</a>
+                    <a href="#" class="size-link">Size Table</a>
+                </div>
+
                 {% if in_cart %}
                     <form method="POST" action="{% url 'cart:update_cart' cart_item.id %}" class="quantity-form">
                         {% csrf_token %}

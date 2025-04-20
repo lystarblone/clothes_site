@@ -165,6 +165,7 @@ select:focus {
     margin-bottom: 0;
     font-size: 1vw;
     color: #333333;
+    margin-bottom: 0.5vw;
 }
 
 .unavailable-message {
