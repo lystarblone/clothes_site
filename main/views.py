@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
-from django.http import HttpResponseNotFound
+from django.db.models import Q
 from .models import Stuff, Collection, Type
 from .forms import AuthForm
 
@@ -110,6 +110,21 @@ def sportswear(request):
     }
     
     return render(request, "main/sportswear.html", dataset)
+
+def search(request):
+    query = request.GET.get('q', '')  # Получаем поисковый запрос из параметра 'q'
+    results = []
+
+    if query:
+        # Ищем товары по названию, краткому названию, описанию и типу
+        results = Stuff.objects.filter(
+            Q(name__icontains=query) |
+            Q(short_name__icontains=query) |
+            Q(description__icontains=query) |
+            Q(type__name__icontains=query)
+        ).distinct()
+
+    return render(request, 'main/search_results.html', {'results': results, 'query': query})
 
 def page_not_found(request, exception):
     dataset = {

@@ -26,8 +26,24 @@
                     </ul>
                 </nav>
                 <div class="header-widgets">
-                    <a href="#" class="search-icon"><img src="{% static 'main/img/index/search.png' %}" alt="Поиск" /></a>
-                    <a href="#" class="wishlist-icon"><img src="{% static 'main/img/index/wishlist.png' %}" alt="Избранное" /></a>
+                    <!-- Контейнер для поиска -->
+                    <div class="search-widget">
+                        <!-- Чекбокс для переключения видимости формы -->
+                        <input type="checkbox" id="toggle-search" class="hidden-checkbox">
+                        
+                        <!-- Label для активации чекбокса (иконка поиска) -->
+                        <label for="toggle-search" class="search-icon">
+                            <img src="{% static 'main/img/index/search.png' %}" alt="Поиск" />
+                        </label>
+                
+                        <!-- Форма поиска -->
+                        <form method="GET" action="{% url 'search' %}" class="search-form">
+                            <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                
+                    <!-- Другие элементы шапки -->
                     <a href="{% url 'cart:cart' %}" class="cart-icon"><img src="{% static 'main/img/index/cart.png' %}" alt="Корзина" /></a>
                     <a href="{% url 'users:profile' %}" class="profile-icon"><img src="{% static 'main/img/index/profile1.png' %}" alt="Профиль" /></a>
                 </div>

@@ -1,0 +1,58 @@
+<!-- templates/search_results.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/css/new_stuff.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="page-container">
+    <!-- Заголовок страницы -->
+    <div class="page-header">
+        <div class="breadcrumb">
+            <span class="breadcrumb-item"><a href="{% url 'main_page' %}">Home</a></span> -
+            <span class="breadcrumb-item active">Search Results</span>
+        </div>
+    </div>
+
+    <h1 class="new-arrivals-title">Search Results for "{{ query }}"</h1>
+
+    <!-- Блок с товарами -->
+    {% if results %}
+        <div class="new-products-panel">
+            <div class="product-container">
+                <div class="product-grid">
+                    {% for product in results %}
+                        <div class="product-item">
+                            <!-- Контейнер для изображений -->
+                            <div class="image-container {% if not product.images.all.1 %}no-hover{% endif %}">
+                                {% if product.images.all %}
+                                    <a href="{% url 'product_detail' slug=product.slug %}">
+                                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image">
+                                    </a>
+                                    
+                                    {% with second_image=product.images.all.1 %}
+                                        {% if second_image %}
+                                            <a href="{% url 'product_detail' slug=product.slug %}">
+                                                <img src="{{ second_image.image.url }}" alt="{{ product.name }} (Hover)" class="hover-image">
+                                            </a>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% endif %}
+                            </div>
+
+                            <div class="product-info">
+                                <p class="product-name">{{ product.short_name }}</p>
+                                <p class="product-price">£{{ product.price }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>No results found for "{{ query }}".</p>
+    {% endif %}
+</div>
+{% endblock %}
