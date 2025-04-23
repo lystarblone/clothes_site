@@ -9,7 +9,6 @@
 
 {% block content %}
 <div class="containerr">
-    <!-- Боковая панель -->
     <div class="sidebar">
         <ul>
             <li><a href="{% url 'client_resources' %}">About The Store</a></li>
@@ -24,7 +23,6 @@
         </ul>
     </div>
 
-    <!-- Основной контент -->
     <main class="content">
         {% block client_resources_content %}
         {% endblock client_resources_content %}

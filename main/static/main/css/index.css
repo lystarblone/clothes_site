@@ -1,4 +1,3 @@
-/* Анимация контента */
 .content {
     transform: translateY(-80px);
     transition: transform 0.5s ease;
@@ -8,7 +7,6 @@ body:not(:has(.scrolled)) .content {
     transform: translateY(0);
 }
 
-/* Стили для баннера */
 .main_banner {
     position: relative;
     width: 100%;
@@ -63,7 +61,6 @@ body:not(:has(.scrolled)) .content {
     }
 }
 
-/* Стили для кнопок */
 .banner-button {
     position: absolute;
     bottom: 7%;
@@ -90,13 +87,11 @@ body:not(:has(.scrolled)) .content {
     transform: scale(1.02);
 }
 
-/* Анимация для кнопки первого баннера */
 .banner-button-1 {
     left: 17.1%;
     animation: buttonSlide1 20s infinite;
 }
 
-/* Анимация для кнопки второго баннера */
 .banner-button-2 {
     right: 24%;
     animation: buttonSlide2 20s infinite;
@@ -142,13 +137,10 @@ body:not(:has(.scrolled)) .content {
     color: transparent;
 }
 
-/* Стили для панели новых товаров */
-
 .product-grid {
     padding-bottom: 4vw;
 }
 
-/* Стили для кнопки-фотографии */
 .down-button {
     display: flex;
     justify-content: center;
@@ -176,20 +168,19 @@ body:not(:has(.scrolled)) .content {
     transform: scale(1.1);
 }
 
-/* Стили для секции с двумя баннерами */
 .banner-section {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem; /* Отступ от предыдущего блока */
-    padding-left: 2rem; /* Отступ слева */
-    padding-right: 2rem; /* Отступ справа */
-    gap: 1rem; /* Расстояние между баннерами */
+    margin-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 1rem;
     height: 100vh;
 }
 
 .banner-item {
-    flex: 1; /* Каждый баннер займёт равную часть ширины */
-    max-width: calc(50% - 1rem); /* Максимальная ширина каждого баннера с учетом отступов */
+    flex: 1;
+    max-width: calc(50% - 1rem);
     overflow: hidden;
     border-radius: 1vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -209,29 +200,28 @@ body:not(:has(.scrolled)) .content {
 }
 
 .banner-item:hover {
-    transform: scale(1.02); /* Анимация при наведении курсора */
+    transform: scale(1.02);
 }
 
-/* Стили для баннера на всю ширину */
 .full-width-banner {
-    margin-top: 2rem; /* Отступ сверху */
+    margin-top: 2rem;
     margin-bottom: 1rem;
-    width: 100%; /* Полная ширина */
+    width: 100%;
     height: auto;
     overflow: hidden;
-    border-radius: 1vw; /* Округление углов */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Тень для акцента */
+    border-radius: 1vw;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .full-width-banner a {
-    display: block; /* Делаем ссылку блочным элементом */
+    display: block;
     width: 100%;
     height: auto;
-    text-decoration: none; /* Убираем подчёркивание ссылки */
+    text-decoration: none;
 }
 
 .full-width-banner img {
-    width: 100%; /* Изображение занимает всю ширину */
-    object-fit: cover; /* Корректное масштабирование изображения */
-    display: block; /* Убираем возможные пробелы */
+    width: 100%;
+    object-fit: cover;
+    display: block;
 }

@@ -112,11 +112,10 @@ def sportswear(request):
     return render(request, "main/sportswear.html", dataset)
 
 def search(request):
-    query = request.GET.get('q', '')  # Получаем поисковый запрос из параметра 'q'
+    query = request.GET.get('q', '')
     results = []
 
     if query:
-        # Ищем товары по названию, краткому названию, описанию и типу
         results = Stuff.objects.filter(
             Q(name__icontains=query) |
             Q(short_name__icontains=query) |

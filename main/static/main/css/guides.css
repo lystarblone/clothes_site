@@ -1,4 +1,3 @@
-/* Глобальные стили */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -9,7 +8,6 @@ body {
     font-size: 1.1vw;
 }
 
-/* Стили для контейнера страницы */
 .containerr {
     display: flex;
     margin: 0 auto;
@@ -19,7 +17,6 @@ body {
     margin-bottom: 1vw;
 }
 
-/* Стили для боковой панели */
 .sidebar {
     width: 14vw;
     height: 28.2vw;
@@ -67,7 +64,6 @@ body {
     color: transparent;
 }
 
-/* Стили для основного контента */
 .content {
     flex: 1;
     background-color: #fff;
@@ -78,7 +74,6 @@ body {
     margin-bottom: 1vw;
 }
 
-/* Стили для разделов контента */
 .about-section {
     margin-bottom: 0rem;
 }
@@ -130,7 +125,6 @@ body {
     margin-bottom: 0.9vw;
 }
 
-/* Стили для информации о магазине */
 .store-details {
     display: flex;
     align-items: flex-start;

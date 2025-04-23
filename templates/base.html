@@ -26,24 +26,17 @@
                     </ul>
                 </nav>
                 <div class="header-widgets">
-                    <!-- Контейнер для поиска -->
                     <div class="search-widget">
-                        <!-- Чекбокс для переключения видимости формы -->
-                        <input type="checkbox" id="toggle-search" class="hidden-checkbox">
-                        
-                        <!-- Label для активации чекбокса (иконка поиска) -->
-                        <label for="toggle-search" class="search-icon">
+                        <button id="toggle-search" class="search-icon">
                             <img src="{% static 'main/img/index/search.png' %}" alt="Поиск" />
-                        </label>
-                
-                        <!-- Форма поиска -->
-                        <form method="GET" action="{% url 'search' %}" class="search-form">
+                        </button>
+
+                        <form id="search-form" method="GET" action="{% url 'search' %}" class="search-form">
                             <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
                             <button type="submit">Search</button>
                         </form>
                     </div>
-                
-                    <!-- Другие элементы шапки -->
+
                     <a href="{% url 'cart:cart' %}" class="cart-icon"><img src="{% static 'main/img/index/cart.png' %}" alt="Корзина" /></a>
                     <a href="{% url 'users:profile' %}" class="profile-icon"><img src="{% static 'main/img/index/profile1.png' %}" alt="Профиль" /></a>
                 </div>
@@ -69,7 +62,7 @@
                         <p>UNITED KINGDOM</p>
                     </div>
                 </div>
-        
+
                 <div class="footer-center">
                     <img src="{% static 'main/img/index/logo_without_back.png' %}" alt="Logo" class="footer-logo">
                     <p class="footer-text">© Polaris Aurora 2025. All rights reserved.</p>
@@ -88,5 +81,27 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleSearchButton = document.getElementById("toggle-search");
+            const searchForm = document.getElementById("search-form");
+
+            toggleSearchButton.addEventListener("click", (event) => {
+                event.stopPropagation();
+                if (searchForm.style.display === "block") {
+                    searchForm.style.display = "none";
+                } else {
+                    searchForm.style.display = "block";
+                }
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!searchForm.contains(event.target) && !toggleSearchButton.contains(event.target)) {
+                    searchForm.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 </html>

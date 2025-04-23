@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-4tnw9q$#rf%pp0whkza0z$ogf49ti)$u2ju)yc2g@1^js+gd0u
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "localhost:800"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -175,3 +175,11 @@ SOCIALACCOUNT_LOGIN_ON_GET = True
 SECURE_SSL_REDIRECT = False
 
 AUTH_USER_MODEL = 'main.User'
+
+PASSWORD_RESET_TIMEOUT = 3600
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_VERIFICATION = 'optional' 

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 # Register your models here.
-from .models import Stuff, StuffImage, Collection, Type
+from .models import Stuff, StuffImage, Collection, Type, User
 
 @admin.register(Stuff)
 class StuffAdmin(admin.ModelAdmin):
@@ -57,3 +57,7 @@ class CollectionAdmin(admin.ModelAdmin):
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
     list_display = ["id", "name"]
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ["id", "email", "first_name", 'last_name']

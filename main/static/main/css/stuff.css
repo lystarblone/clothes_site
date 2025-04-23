@@ -1,5 +1,3 @@
-/* Основные стили */
-
 .hidden-radio {
     display: none;
 }
@@ -11,7 +9,6 @@
     margin-top: 2vw;
 }
 
-/* Блок миниатюр */
 .thumbnail-container {
     display: flex;
     flex-direction: column;
@@ -32,7 +29,6 @@
     border-radius: 0.5vw;
 }
 
-/* Большое изображение */
 .main-image-container {
     width: 38vw;
     height: 38vw;
@@ -42,7 +38,6 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* Убираем тень */
     box-shadow: none;
 }
 
@@ -51,11 +46,9 @@
     height: auto;
     object-fit: contain;
     border-radius: 1vw;
-    /* Убираем эффекты перехода */
     transition: none;
 }
 
-/* Информация о товаре */
 .product-info {
     padding: 1vw;
     background-color: #f9f9f9;
@@ -79,29 +72,6 @@
     color: #063e69;
 }
 
-/* Стиль для контейнера описания */
-.product-description-container {
-    margin-top: 2vw;
-    padding-left: 1vw;
-}
-
-/* Заголовок описания */
-.description-title {
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: #063e69;
-    margin-bottom: 0.5vw;
-}
-
-/* Текст описания */
-.product-description {
-    font-size: 1.2vw;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 1vw;
-}
-
-/* Выбор размера и кнопки */
 .size-selector {
     display: flex;
     gap: 0.8vw;
@@ -142,7 +112,6 @@
     border-radius: 50%;
 }
 
-/* Ссылки на Size Guide и Size Table */
 .size-links {
     display: flex;
     gap: 1.5vw;
@@ -161,7 +130,6 @@
     text-decoration: none;
 }
 
-/* Кнопка "Add to cart" */
 .add-to-cart-btn {
     display: inline-block;
     width: 25vw;
@@ -182,4 +150,46 @@
 .add-to-cart-btn:hover {
     background-color: transparent;
     color: #000;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.size-table-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }

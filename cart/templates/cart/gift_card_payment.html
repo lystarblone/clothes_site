@@ -1,5 +1,3 @@
-<!-- cart/templates/cart/gift_card_payment.html -->
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -13,7 +11,6 @@
         <h1>Gift Card Payment</h1>
         <p>Please enter your 16-digit gift card code below:</p>
 
-        <!-- Форма для ввода кода -->
         <form method="POST" class="gift-card-input-form">
             {% csrf_token %}
             <div class="form-group">
@@ -30,7 +27,6 @@
             <button type="submit" class="submit-button">Apply Gift Card</button>
         </form>
 
-        <!-- Сообщение об ошибке -->
         {% if error_message %}
             <div class="error-message">
                 <p>{{ error_message }}</p>

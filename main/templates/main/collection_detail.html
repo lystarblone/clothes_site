@@ -7,7 +7,6 @@
 
 {% block content %}
 <div class="page-container">
-    <!-- Заголовок страницы -->
     <div class="page-header">
         <div class="breadcrumb">
             <span class="breadcrumb-item"><a href="{% url 'collections' %}">Collections</a></span>-
@@ -16,11 +15,9 @@
     </div>
     <h1 class="new-arrivals-title">{{ title }}</h1>
 
-    <!-- Блок с товарами -->
     <div class="product-grid">
         {% for product in products %}
             <div class="product-item">
-                <!-- Контейнер для изображений -->
                 <div class="image-container {% if not product.images.all.1 %}no-hover{% endif %}">
                     {% if product.images.all %}
                         <a href="{% url 'product_detail' slug=product.slug %}">
@@ -39,7 +36,6 @@
                     {% endif %}
                 </div>
 
-                <!-- Информация о товаре -->
                 <div class="product-info">
                     <p class="product-name">{{ product.short_name }}</p>
                     <p class="product-price">£{{ product.price }}</p>

@@ -1,6 +1,5 @@
-/* Стили для верхней полоски */
 .page-header {
-    background-color: #c3dbed; /* Нежно-синий фон */
+    background-color: #c3dbed;
     padding: 1rem 0;
     border-bottom: 1px solid #ddd;
 }
@@ -40,7 +39,6 @@
     margin-bottom: 1rem;
 }
 
-/* Стили для панели новых товаров */
 .new-products-panel {
     position: relative;
     background-color: #f9f9f9;
@@ -79,7 +77,6 @@
     margin-bottom: 2vw;
 }
 
-/* Контейнер для изображений */
 .image-container {
     position: relative;
     width: 100%;
@@ -109,7 +106,6 @@
     transition: opacity 0.15s ease;
 }
 
-/* При наведении показываем второе изображение */
 .image-container:not(.no-hover):hover .main-image {
     opacity: 0;
 }
@@ -122,7 +118,6 @@
     transform: rotateY(180deg);
 }
 
-/* Стили для блока с информацией о товаре */
 .product-info {
     margin-top: 1vw;
     text-align: center;
@@ -144,7 +139,6 @@
     font-weight: bold;
 }
 
-/* Стили для пагинации */
 .pagination {
     display: flex;
     justify-content: center;

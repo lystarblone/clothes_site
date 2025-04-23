@@ -1,52 +1,46 @@
-/* Стили для карточки коллекции */
 .collection-card {
     display: flex;
-    align-items: center; /* Выравнивание элементов по центру по вертикали */
-    margin-bottom: 2rem; /* Отступ между карточками */
-    background-color: #fff; /* Фон карточки */
-    padding: 1.5rem; /* Внутренние отступы */
-    border-radius: 0.8vw; /* Закругление углов */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень для объёмности */
+    align-items: center;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.8vw;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Контейнер для изображения */
 .collection-card .image-container {
     position: relative;
-    width: 30vw; /* Ширина изображения */
+    width: 30vw;
     height: auto;
-    margin-right: 8vw; /* Отступ между изображением и текстом */
+    margin-right: 8vw;
     margin-top: 0vw;
 }
 
-/* Ссылка на изображение */
 .collection-card .collection-image-link {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-/* Изображение коллекции */
 .collection-card .collection-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0.5vw; /* Закругление углов изображения */
+    border-radius: 0.5vw;
 }
 
-/* Текстовый контент */
 .collection-card .content {
-    flex: 1; /* Текст занимает оставшееся пространство */
+    flex: 1;
     max-width: 49vw;
 }
 
 .collection-card p {
-    font-size: 1.1vw; /* Размер описания */
-    color: #555; /* Цвет текста */
-    line-height: 1.6; /* Интервал между строками */
+    font-size: 1.1vw;
+    color: #555;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
-/* Добавляем отступ над заголовком Collection Data */
 h1.gradient-text {
     margin-top: 2rem;
     font-size: 2.5vw;
