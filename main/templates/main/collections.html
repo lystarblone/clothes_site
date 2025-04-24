@@ -12,7 +12,7 @@
                 <div class="collection-card">
                     <div class="image-container">
                         {% if data.image %}
-                            <a href="{% url 'collection_detail' slug=data.slug %}" class="collection-image-link">
+                            <a href="{% if forloop.revcounter == 4 %}{% url 'product_detail' slug='shadow-snow-limited-edition-gothic-jacket' %}{% else %}{% url 'collection_detail' slug=data.slug %}{% endif %}" class="collection-image-link">
                                 <img src="{{ data.image.url }}" alt="{{ data.name }}" class="collection-image">
                             </a>
                         {% else %}

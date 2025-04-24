@@ -127,7 +127,7 @@ def search(request):
 
 def collection_detail(request, slug):
     collection = get_object_or_404(Collection, slug=slug)
-    products = Stuff.objects.filter(collection=collection)
+    products = Stuff.objects.filter(collection=collection).order_by('-pk')
 
     dataset = {
         'products': products,
